@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;shell&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -212,9 +212,6 @@
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
-              <a href="#" data-language-name="javascript">javascript</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -226,161 +223,137 @@
           </li>
           <li>
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
-          </li>
-          <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Get All Kittens">Get All Kittens</a>
+                    <a href="#overview" class="toc-h2 toc-link" data-title="Overview">Overview</a>
                   </li>
                   <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
+                    <a href="#create-an-account" class="toc-h2 toc-link" data-title="Create an Account">Create an Account</a>
                   </li>
                   <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="Delete a Specific Kitten">Delete a Specific Kitten</a>
+                    <a href="#sign-in" class="toc-h2 toc-link" data-title="Sign In">Sign In</a>
+                  </li>
+                  <li>
+                    <a href="#sign-out" class="toc-h2 toc-link" data-title="Sign Out">Sign Out</a>
+                  </li>
+                  <li>
+                    <a href="#update-an-account" class="toc-h2 toc-link" data-title="Update an Account">Update an Account</a>
+                  </li>
+                  <li>
+                    <a href="#implementation-details" class="toc-h2 toc-link" data-title="Implementation Details">Implementation Details</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+            <a href="#projects" class="toc-h1 toc-link" data-title="Projects">Projects</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#create-a-project" class="toc-h2 toc-link" data-title="Create a Project">Create a Project</a>
+                  </li>
+                  <li>
+                    <a href="#get-all-projects" class="toc-h2 toc-link" data-title="Get All Projects">Get All Projects</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#sessions" class="toc-h1 toc-link" data-title="Sessions">Sessions</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#create-a-session" class="toc-h2 toc-link" data-title="Create a Session">Create a Session</a>
+                  </li>
+                  <li>
+                    <a href="#get-all-sessions" class="toc-h2 toc-link" data-title="Get All Sessions">Get All Sessions</a>
+                  </li>
+                  <li>
+                    <a href="#get-an-individual-session" class="toc-h2 toc-link" data-title="Get an Individual Session">Get an Individual Session</a>
+                  </li>
+                  <li>
+                    <a href="#update-a-session" class="toc-h2 toc-link" data-title="Update a Session">Update a Session</a>
+                  </li>
+                  <li>
+                    <a href="#delete-a-session" class="toc-h2 toc-link" data-title="Delete a Session">Delete a Session</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#pages" class="toc-h1 toc-link" data-title="Pages">Pages</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-pages" class="toc-h2 toc-link" data-title="Get All Pages">Get All Pages</a>
+                  </li>
+                  <li>
+                    <a href="#get-an-individual-page" class="toc-h2 toc-link" data-title="Get an Individual Page">Get an Individual Page</a>
+                  </li>
+              </ul>
           </li>
       </ul>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
             <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
+            <li><a href='https://www.getpostman.com/collections/2a3ec089db2d9d917e7d'>Try Requests on Postman</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>Welcome to the Hawkeye API! This is intended for internal use in Hawkeye clients, like our iOS app and website. Using the API, you can create tests, upload test data, and view test results.</p>
 
-<p>We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<p>In the dark area to the right, you&#39;ll find example requests and responses. </p>
 
-<p>This example API documentation page was created with <a href="https://github.com/lord/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
-<h1 id='authentication'>Authentication</h1>
+<p>This example API documentation page was created with <a href="https://github.com/lord/slate">Slate</a>. Please update the docs as you see fit.</p>
+<h1 id='authentication'>Authentication</h1><h2 id='overview'>Overview</h2>
+<p>Hawkeye uses tokens to authenticate users. Before sending any requests, you must sign in to a user account. After creating an account or signing in, you&#39;ll be returned several authentication headers which should be included in subsequent requests.</p>
+<h2 id='create-an-account'>Create an Account</h2>
 <blockquote>
-<p>To authorize, use this code:</p>
+<p>To create an account, send this request:</p>
 </blockquote>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://hawkeye-staging.herokuapp.com/api/v1/auth"</span>
+  -X POST
+  -d <span class="nv">email</span><span class="o">=</span>authexample@usehawkeye.com
+  -d <span class="nv">password</span><span class="o">=</span>examplepassword
+  -d <span class="nv">password_confirm</span><span class="o">=</span>examplepassword
 </code></pre>
 <blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
-</blockquote>
-
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
-
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code>Authorization: meowmeowmeow</code></p>
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves all kittens.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
-</tr>
-</tbody></table>
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The above request returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"authexample@usehawkeye.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"allow_password_change"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Auth"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"authexample@usehawkeye.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-16T06:00:29.523Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-16T06:00:29.780Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"company_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hawkeye Labs, Inc."</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"company_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"company_industry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Design Tools"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Engineer"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"free_trial_end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-11-27T06:00:29.310Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
+<blockquote>
+<p>In addition, these headers will be returned.</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"Access-Token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"v8jZB-iMSwcJhIPTTqrYvg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Token-Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bearer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Client"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OVwx7W72CqL8qFwLw_2Lkg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Expiry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1568617089"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"authexample@usehawkeye.com"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>These headers should be included in all subsequent requests.</p>
+</blockquote>
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
+<p>This endpoint creates a new user account.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://hawkeye-staging.herokuapp.com/api/v1/auth</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -389,37 +362,93 @@ Remember — a happy kitten is an authenticated kitten!
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td>email</td>
+<td>The user&#39;s email</td>
+</tr>
+<tr>
+<td>password</td>
+<td>The user&#39;s password</td>
+</tr>
+<tr>
+<td>password_confirm</td>
+<td>Confirmation of the user&#39;s password</td>
+</tr>
+<tr>
+<td>first_name</td>
+<td>The user&#39;s first name</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td>The user&#39;s last name</td>
+</tr>
+<tr>
+<td>company_name</td>
+<td>The name of the user&#39;s company</td>
+</tr>
+<tr>
+<td>company_size</td>
+<td>The size of the user&#39;s company</td>
+</tr>
+<tr>
+<td>company_industry</td>
+<td>The industry of the user&#39;s company</td>
+</tr>
+<tr>
+<td>role</td>
+<td>The role of the user at their company</td>
 </tr>
 </tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -X DELETE
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<aside class="success">
+Requests must include ALL the auth headers described above.
+</aside>
+<h2 id='sign-in'>Sign In</h2>
+<blockquote>
+<p>To sign in to an existing account, send this request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://hawkeye-staging.herokuapp.com/api/v1/auth/sign_in"</span>
+  -X POST
+  -d <span class="nv">email</span><span class="o">=</span>authexample@usehawkeye.com
+  -d <span class="nv">password</span><span class="o">=</span>examplepassword
 </code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The above request returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"authexample@usehawkeye.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"authexample@usehawkeye.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"allow_password_change"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Auth"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"company_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hawkeye Labs, Inc."</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"company_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"company_industry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Design Tools"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Engineer"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"free_trial_end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-11-27T06:11:34.320Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
+<blockquote>
+<p>In addition, these headers will be returned.</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"Access-Token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"v8jZB-iMSwcJhIPTTqrYvg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Token-Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bearer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Client"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OVwx7W72CqL8qFwLw_2Lkg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Expiry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1568617089"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"authexample@usehawkeye.com"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>These headers should be included in all subsequent requests.</p>
+</blockquote>
+
+<p>This endpoint signs the user into an existing account.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST https://hawkeye-staging.herokuapp.com/api/v1/auth/sign_in</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -428,66 +457,693 @@ Remember — a happy kitten is an authenticated kitten!
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to delete</td>
+<td>email</td>
+<td>The user&#39;s email</td>
+</tr>
+<tr>
+<td>password</td>
+<td>The user&#39;s password</td>
 </tr>
 </tbody></table>
-<h1 id='errors'>Errors</h1>
-<aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
-</aside>
 
-<p>The Kittn API uses the following error codes:</p>
+<aside class="success">
+Requests must include ALL the auth headers described above.
+</aside>
+<h2 id='sign-out'>Sign Out</h2>
+<blockquote>
+<p>To sign out, send this request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://hawkeye-staging.herokuapp.com/api/v1/auth/sign_out"</span>
+-X DELETE
+</code></pre>
+<p>This endpoint signs the user out of their account on the device associated with the reques&#39;s auth headers.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>DELETE https://hawkeye-staging.herokuapp.com/api/v1/auth/sign_out</code></p>
+<h2 id='update-an-account'>Update an Account</h2>
+<blockquote>
+<p>To update an existing user account, send this request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://hawkeye-staging.herokuapp.com/api/v1/auth"</span>
+  -X PUT
+  -d <span class="nv">first_name</span><span class="o">=</span>New
+</code></pre>
+<blockquote>
+<p>The above request returns JSON structured like this, representing the updated user:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"authexample@usehawkeye.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"authexample@usehawkeye.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"allow_password_change"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"company_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hawkeye Labs, Inc."</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"company_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"company_industry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Design Tools"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Engineer"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"free_trial_end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-11-27T06:11:34.320Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>In addition, these headers will be returned.</p>
+</blockquote>
+
+<p>This endpoint updates the account details for the currently-authenticated user.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>PUT https://hawkeye-staging.herokuapp.com/api/v1/auth</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<p>Include any fields on the user object that you wish to update. Fields not included will remain unchanged.</p>
 
 <table><thead>
 <tr>
-<th>Error Code</th>
-<th>Meaning</th>
+<th>Parameter</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>400</td>
-<td>Bad Request -- Your request is invalid.</td>
+<td>email</td>
+<td>The user&#39;s email</td>
 </tr>
 <tr>
-<td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
+<td>password</td>
+<td>The user&#39;s password</td>
 </tr>
 <tr>
-<td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+<td>password_confirm</td>
+<td>Confirmation of the user&#39;s password</td>
 </tr>
 <tr>
-<td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
+<td>first_name</td>
+<td>The user&#39;s first name</td>
 </tr>
 <tr>
-<td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
+<td>last_name</td>
+<td>The user&#39;s last name</td>
 </tr>
 <tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
+<td>company_name</td>
+<td>The name of the user&#39;s company</td>
 </tr>
 <tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
+<td>company_size</td>
+<td>The size of the user&#39;s company</td>
 </tr>
 <tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
+<td>company_industry</td>
+<td>The industry of the user&#39;s company</td>
 </tr>
 <tr>
-<td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
+<td>role</td>
+<td>The role of the user at their company</td>
+</tr>
+</tbody></table>
+<h2 id='implementation-details'>Implementation Details</h2>
+<p>We use the <a href="https://www.github.com/lynndylanhurley/devise_token_auth">Devise Token Auth</a> gem to manage user account. You can find the docs <a href="https://devise-token-auth.gitbook.io/devise-token-auth/usage">here</a>. </p>
+<h1 id='projects'>Projects</h1>
+<p>Projects are used to organize tests conducted using Hawkeye. Each project should be used to test a single piece of content. For each project, multiple tests can be conducted, each represented by a session.</p>
+<h2 id='create-a-project'>Create a Project</h2>
+<blockquote>
+<p>To create a project, send this request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://hawkeye-staging.herokuapp.com/api/v1/projects"</span>
+-X POST
+-d <span class="nv">title</span><span class="o">=</span><span class="s2">"Example Project"</span>
+-d <span class="nv">content_type</span><span class="o">=</span>website
+</code></pre>
+<blockquote>
+<p>The above request returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Project"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"website"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcjBTIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--ec833985f133b834eacba621df44b41341eacbe0/instagram_thumb.png"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"thumbnail_metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"identified"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">110</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">190</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"analyzed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sessions"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint creates a new project. You can either create a project on its own or include an array of sessions using the <code>sessions_attributes</code> param.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>POST https://hawkeye-staging.herokuapp.com/api/v1/projects</code></p>
+<h3 id='url-parameters-4'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>title</td>
+<td>The title of the project</td>
 </tr>
 <tr>
-<td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+<td>content_type</td>
+<td>The type of content being tested. Website, app, or image.</td>
 </tr>
 <tr>
-<td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+<td>thumbnail</td>
+<td>Thumbnail data (using form data)</td>
+</tr>
+<tr>
+<td>sessions_attributes</td>
+<td>Array of sessions</td>
+</tr>
+</tbody></table>
+<h2 id='get-all-projects'>Get All Projects</h2>
+<blockquote>
+<p>To get all projects, send this request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://hawkeye-staging.herokuapp.com/api/v1/projects"</span>
+  -H <span class="s2">"Access-Token: v8jZB-iMSwcJhIPTTqrYvg"</span>
+  -H <span class="s2">"Token-Type: Bearer"</span>
+  -H <span class="s2">"Client: OVwx7W72CqL8qFwLw_2Lkg"</span>
+  -H <span class="s2">"Expiry: 1568617089"</span>
+  -H <span class="s2">"Uid: authexample@usehawkeye.com"</span>
+</code></pre>
+<blockquote>
+<p>The above request returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">201</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Project 2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"website"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcjRTIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--38e71a3c01c7aff1d44fb80a5be3a023625845ee/instagram_thumb.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"thumbnail_metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"identified"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">110</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">190</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"analyzed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Project"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"website"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcjBTIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--ec833985f133b834eacba621df44b41341eacbe0/instagram_thumb.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"thumbnail_metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"identified"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">110</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">190</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"analyzed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all projects for the current user. By default, this will include sessions for each project. Set the <code>include_sessions</code> parameter to <code>false</code> to fetch only the projects themselves.</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>GET https://hawkeye-staging.herokuapp.com/api/v1/projects</code></p>
+<h3 id='url-parameters-5'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>shallow_sessions</td>
+<td>Whether sessions should be included for each project. Defaults to false, meaning sessions will be included.</td>
+</tr>
+</tbody></table>
+<h1 id='sessions'>Sessions</h1>
+<p>A session represents a single test conducted using Hawkeye. Each session can contain multiple pages (which are used to generate heatmaps) and a screen recording.</p>
+<h2 id='create-a-session'>Create a Session</h2>
+<blockquote>
+<p>To create a session, send this request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://hawkeye-staging.herokuapp.com/api/v1/projects/&lt;project_id&gt;/sessions"</span>
+-X POST
+-d <span class="nv">title</span><span class="o">=</span><span class="s2">"Example Session"</span>
+-d <span class="nv">content_type</span><span class="o">=</span><span class="s2">"website"</span>
+-d <span class="nv">started_at</span><span class="o">=</span><span class="s2">"2019-06-13'0'10:12:12.000Z"</span>
+-d <span class="nv">ended_at</span><span class="o">=</span><span class="s2">"2019-06-13'0'10:20:12.000Z"</span>
+-d <span class="nv">screen_width</span><span class="o">=</span>200.0
+-d <span class="nv">screen_height</span><span class="o">=</span>600.0
+-d <span class="nv">favorite</span><span class="o">=</span><span class="nb">false</span>
+-d tester[email]<span class="o">=</span>tester@usehawkeye.com
+-d tester[first_name]<span class="o">=</span>Tester
+-d tester[last_name]<span class="o">=</span>Smith
+</code></pre>
+<blockquote>
+<p>The above request returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1013</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Session"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"website"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-13T10:12:12.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ended_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-13T10:20:12.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"favorite"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"thumbnail_metadata"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"video"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"screen_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"screen_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tester"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tester"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tester@usehawkeye.com"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint creates a new session for a given project. All pages visited during the test, complete with eye position and touch events for each page, should be included in this request. </p>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>POST https://hawkeye-staging.herokuapp.com/api/v1/projects/&lt;project_id&gt;/sessions</code></p>
+<h3 id='url-parameters-6'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The project the session belongs to</td>
+</tr>
+<tr>
+<td>title</td>
+<td>The title of the session</td>
+</tr>
+<tr>
+<td>content_type</td>
+<td>The type of content being tested. Website, app, or image.</td>
+</tr>
+<tr>
+<td>thumbnail</td>
+<td>Thumbnail data (using form data)</td>
+</tr>
+<tr>
+<td>started_at</td>
+<td>The time the test began</td>
+</tr>
+<tr>
+<td>ended_at</td>
+<td>The time the test ended</td>
+</tr>
+<tr>
+<td>screen_width</td>
+<td>The width of the device</td>
+</tr>
+<tr>
+<td>screen_height</td>
+<td>The height of the device</td>
+</tr>
+<tr>
+<td>favorite</td>
+<td>Whether or not the test is favorited</td>
+</tr>
+<tr>
+<td>tester</td>
+<td>Dictionary containing the tester&#39;s info (first_name, last_name, email, etc.)</td>
+</tr>
+<tr>
+<td>invite_token</td>
+<td>Token identifier of the invitation to participate in this test</td>
+</tr>
+<tr>
+<td>video</td>
+<td>Screen recording video data (using form data)</td>
+</tr>
+<tr>
+<td>pages_attributes</td>
+<td>Array of pages visited during the test</td>
+</tr>
+</tbody></table>
+<h2 id='get-all-sessions'>Get All Sessions</h2>
+<blockquote>
+<p>To get all sessions for a project, send this request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://hawkeye-staging.herokuapp.com/api/v1/projects/&lt;project_id&gt;/sessions"</span>
+-X GET
+</code></pre>
+<blockquote>
+<p>The above request returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1013</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Session"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"website"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-13T10:12:12.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ended_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-13T10:20:12.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"favorite"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"thumbnail_metadata"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"video"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"screen_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"screen_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tester"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tester"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tester@usehawkeye.com"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1012</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Session"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"website"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-13T10:12:12.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ended_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-13T10:20:12.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"favorite"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"thumbnail_metadata"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"video"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"screen_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"screen_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tester"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Note: No page data is returned.</p>
+</blockquote>
+
+<p>This endpoint gets all sessions for a given project. This does not include page data. To fetch the complete data for a session, including page metadata, see <a href="#get-an-individual-session">Get an Individual Session</a></p>
+<h3 id='http-request-8'>HTTP Request</h3>
+<p><code>GET https://hawkeye-staging.herokuapp.com/api/v1/projects/&lt;project_id&gt;/sessions</code></p>
+<h3 id='url-parameters-7'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The project the session belongs to</td>
+</tr>
+</tbody></table>
+<h2 id='get-an-individual-session'>Get an Individual Session</h2>
+<blockquote>
+<p>To get an individual session, send this request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://hawkeye-staging.herokuapp.com/api/v1/sessions/&lt;session_id&gt;"</span>
+-X GET
+-d <span class="nv">shallow_pages</span><span class="o">=</span><span class="nb">true</span>
+</code></pre>
+<blockquote>
+<p>The above request returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1016</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Session"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"website"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-13T10:12:12.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ended_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-13T10:20:12.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"favorite"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"thumbnail_metadata"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"video"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"screen_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"screen_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2590</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test 2"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-13T10:12:12.000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ended_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-13T10:20:12.000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"scrollable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"thumbnail_metadata"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2589</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test 1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-13T10:12:12.000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ended_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-13T10:20:12.000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"scrollable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"thumbnail_metadata"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"tester"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tester"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tester@usehawkeye.com"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint gets an individual session. </p>
+
+<p>By default, complete page data will be included. If you&#39;d like to get back thumbnails and tiltes for each page without eye positions and touch event data, set the <code>shallow_pages</code> to <code>true</code>. To fetch the complete data for an individual page, see <a href="#get-an-individual-page">Get an Individual Page</a> and to fetch the complete data for all pages in a session, see <a href="#get-all-pages">Get All Pages</a>.</p>
+<h3 id='http-request-9'>HTTP Request</h3>
+<p><code>GET https://hawkeye-staging.herokuapp.com/api/v1/sessions/&lt;session_id&gt;</code></p>
+<h3 id='url-parameters-8'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>session_id</td>
+<td>The identifier of the session</td>
+</tr>
+<tr>
+<td>shallow_pages</td>
+<td>Only returns metadata for sessions. Defaults to false, meaning full session data will be returned.</td>
+</tr>
+</tbody></table>
+<h2 id='update-a-session'>Update a Session</h2>
+<blockquote>
+<p>To update a session, send this request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://hawkeye-staging.herokuapp.com/api/v1/sessions/&lt;session_id&gt;"</span>
+-X PUT
+-d <span class="nv">title</span><span class="o">=</span><span class="s2">"New Title"</span>
+</code></pre>
+<blockquote>
+<p>The above request returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1012</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New Title"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"website"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-13T10:12:12.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ended_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-13T10:20:12.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"favorite"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"thumbnail_metadata"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"video"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"screen_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"screen_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tester"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint updates a session.</p>
+<h3 id='http-request-10'>HTTP Request</h3>
+<p><code>GET https://hawkeye-staging.herokuapp.com/api/v1/sessions/&lt;session_id&gt;</code></p>
+<h3 id='url-parameters-9'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>session_id</td>
+<td>The identifier of the session</td>
+</tr>
+<tr>
+<td>title</td>
+<td>The title of the session</td>
+</tr>
+<tr>
+<td>favorite</td>
+<td>Whether or not the test is favorited</td>
+</tr>
+</tbody></table>
+<h2 id='delete-a-session'>Delete a Session</h2>
+<blockquote>
+<p>To delete a session, send this request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://hawkeye-staging.herokuapp.com/api/v1/sessions/&lt;session_id&gt;"</span>
+-X DELETE
+</code></pre>
+<p>This endpoint deletes a session.</p>
+<h3 id='http-request-11'>HTTP Request</h3>
+<p><code>DELETE https://hawkeye-staging.herokuapp.com/api/v1/sessions/&lt;session_id&gt;</code></p>
+<h3 id='url-parameters-10'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>session_id</td>
+<td>The identifier of the session</td>
+</tr>
+</tbody></table>
+<h1 id='pages'>Pages</h1>
+<p>Data is recorded for each page the user visits during a test, including their eye positions and touch events. This data is used to generate heatmaps and focus point diagrams.</p>
+<h2 id='get-all-pages'>Get All Pages</h2>
+<blockquote>
+<p>To get the complete data for all pages in a session, send this request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://hawkeye-staging.herokuapp.com/api/v1/sessions/&lt;session_id&gt;/pages"</span>
+-X GET
+</code></pre>
+<blockquote>
+<p>The above request returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2590</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test 2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-13T10:12:12.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ended_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-13T10:20:12.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"scrollable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"thumbnail_metadata"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"screen_capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"gestures"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="s2">"eye_positions"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2589</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test 1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-13T10:12:12.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ended_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-13T10:20:12.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"scrollable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"thumbnail_metadata"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"screen_capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"gestures"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">16862</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-13T10:12:12.000Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"ended_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-13T10:12:14.000Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"touches"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">297201</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-13T10:12:12.000Z"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"x_pos"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"y_pos"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"eye_positions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">279686</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"x_pos"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"y_pos"</span><span class="p">:</span><span class="w"> </span><span class="mi">2000</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-13T10:12:12.000Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"ended_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-13T10:12:12.000Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"abs_x_pos"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"abs_y_pos"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint gets all complete data for all pages in a session, including the eye positions and touch events recorded during the test. To fetch page metadata without the complete data, see <a href="#get-an-individual-session">Get an Individual Session</a>. </p>
+<h3 id='http-request-12'>HTTP Request</h3>
+<p><code>GET https://hawkeye-staging.herokuapp.com/api/v1/sessions/&lt;session_id&gt;/pages</code></p>
+<h3 id='url-parameters-11'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>session_id</td>
+<td>The identifier of the session that the pages belong to</td>
+</tr>
+</tbody></table>
+<h2 id='get-an-individual-page'>Get an Individual Page</h2>
+<blockquote>
+<p>To get an individual page, send this request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://hawkeye-staging.herokuapp.com/api/v1/pages/&lt;page_id&gt;"</span>
+-X GET
+</code></pre>
+<blockquote>
+<p>The above request returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2589</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test 1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-13T10:12:12.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ended_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-13T10:20:12.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"scrollable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"thumbnail_metadata"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"screen_capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"gestures"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">16862</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-13T10:12:12.000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ended_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-13T10:12:14.000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"touches"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">297201</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-13T10:12:12.000Z"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"x_pos"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"y_pos"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"eye_positions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">279686</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"x_pos"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"y_pos"</span><span class="p">:</span><span class="w"> </span><span class="mi">2000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-13T10:12:12.000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ended_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-13T10:12:12.000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"abs_x_pos"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"abs_y_pos"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint gets an individual page, including the eye positions and touch events recorded during the page visit.</p>
+<h3 id='http-request-13'>HTTP Request</h3>
+<p><code>GET https://hawkeye-staging.herokuapp.com/api/v1/pages/&lt;page_id&gt;</code></p>
+<h3 id='url-parameters-12'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>page_id</td>
+<td>The identifier of the page</td>
 </tr>
 </tbody></table>
 
@@ -495,9 +1151,6 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
       <div class="dark-box">
           <div class="lang-selector">
                 <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
-                <a href="#" data-language-name="javascript">javascript</a>
           </div>
       </div>
     </div>
