@@ -323,6 +323,14 @@
                   </li>
               </ul>
           </li>
+          <li>
+            <a href="#favorites" class="toc-h1 toc-link" data-title="Favorites">Favorites</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-favorites" class="toc-h2 toc-link" data-title="Get All Favorites">Get All Favorites</a>
+                  </li>
+              </ul>
+          </li>
       </ul>
         <ul class="toc-footer">
             <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
@@ -1694,6 +1702,50 @@ Requests must include ALL the auth headers described above.
 <td>Array of testers to remove from existing testers</td>
 </tr>
 </tbody></table>
+<h1 id='favorites'>Favorites</h1><h2 id='get-all-favorites'>Get All Favorites</h2>
+<blockquote>
+<p>To get all favorites, send this request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://hawkeye-staging.herokuapp.com/api/v1/favorites"</span>
+-X GET
+</code></pre>
+<blockquote>
+<p>The above request returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1101</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Session"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"website"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-13T10:12:12.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ended_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-13T10:20:12.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"favorite"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"thumbnail_metadata"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"video"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"screen_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"screen_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tester"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">27</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tester"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tester@usehawkeye.com"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sessions_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"first_test_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-23T22:35:05.961Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"last_test_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-23T22:35:05.961Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"creator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">69</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint fetches favorited sessions across all projects in the organization.</p>
+<h3 id='http-request-23'>HTTP Request</h3>
+<p><code>GET https://hawkeye-staging.herokuapp.com/api/v1/favorites</code></p>
 
       </div>
       <div class="dark-box">
