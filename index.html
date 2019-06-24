@@ -286,6 +286,43 @@
                   </li>
               </ul>
           </li>
+          <li>
+            <a href="#testers" class="toc-h1 toc-link" data-title="Testers">Testers</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-testers" class="toc-h2 toc-link" data-title="Get All Testers">Get All Testers</a>
+                  </li>
+                  <li>
+                    <a href="#get-an-individual-tester" class="toc-h2 toc-link" data-title="Get an Individual Tester">Get an Individual Tester</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-tester" class="toc-h2 toc-link" data-title="Create a Tester">Create a Tester</a>
+                  </li>
+                  <li>
+                    <a href="#update-a-tester" class="toc-h2 toc-link" data-title="Update a Tester">Update a Tester</a>
+                  </li>
+                  <li>
+                    <a href="#delete-a-tester" class="toc-h2 toc-link" data-title="Delete a Tester">Delete a Tester</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#tester-segmentation" class="toc-h1 toc-link" data-title="Tester Segmentation">Tester Segmentation</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-tester-segments" class="toc-h2 toc-link" data-title="Get All Tester Segments">Get All Tester Segments</a>
+                  </li>
+                  <li>
+                    <a href="#get-all-testers-in-segment" class="toc-h2 toc-link" data-title="Get All Testers in Segment">Get All Testers in Segment</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-tester-segment" class="toc-h2 toc-link" data-title="Create a Tester Segment">Create a Tester Segment</a>
+                  </li>
+                  <li>
+                    <a href="#update-a-tester-segment" class="toc-h2 toc-link" data-title="Update a Tester Segment">Update a Tester Segment</a>
+                  </li>
+              </ul>
+          </li>
       </ul>
         <ul class="toc-footer">
             <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
@@ -1144,6 +1181,517 @@ Requests must include ALL the auth headers described above.
 <tr>
 <td>page_id</td>
 <td>The identifier of the page</td>
+</tr>
+</tbody></table>
+<h1 id='testers'>Testers</h1><h2 id='get-all-testers'>Get All Testers</h2>
+<blockquote>
+<p>To get all testers, send this request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://hawkeye-staging.herokuapp.com/api/v1/testers/segments/all"</span>
+-X GET
+</code></pre>
+<blockquote>
+<p>The above request returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"All"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"all"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"testers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">27</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tester"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tester@usehawkeye.com"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sessions_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"first_test_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-23T22:35:05.961Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"last_test_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-23T22:35:05.961Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"creator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">68</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Matt"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Moss"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">28</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jim"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example@usehawkeye.com"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sessions_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"first_test_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"last_test_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"creator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">68</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Matt"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Moss"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint fetches all testers.</p>
+<h3 id='http-request-14'>HTTP Request</h3>
+<p><code>GET https://hawkeye-staging.herokuapp.com/api/v1/testers/segments/all</code></p>
+<h3 id='url-parameters-13'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>segment_id</td>
+<td>The identifier of the segment</td>
+</tr>
+</tbody></table>
+<h2 id='get-an-individual-tester'>Get an Individual Tester</h2>
+<blockquote>
+<p>To get an individual testers, send this request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://hawkeye-staging.herokuapp.com/api/v1/testers/&lt;tester_id&gt;"</span>
+-X GET
+</code></pre>
+<blockquote>
+<p>The above request returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">27</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tester"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tester@usehawkeye.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sessions_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_test_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-23T22:35:05.961Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_test_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-23T22:35:05.961Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"creator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">69</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Matt"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Moss"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tester_segments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MQWPqJ_y188pCcJxNcSz"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"sessions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1101</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Session"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"website"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-13T10:12:12.000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ended_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-13T10:20:12.000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"favorite"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"thumbnail_metadata"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"video"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"screen_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"screen_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"session_invites"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint fetches an individual tester, including all of the sessions they have completed.</p>
+<h3 id='http-request-15'>HTTP Request</h3>
+<p><code>GET https://hawkeye-staging.herokuapp.com/api/v1/testers/&lt;tester_id&gt;</code></p>
+<h3 id='url-parameters-14'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tester_id</td>
+<td>The identifier of the tester</td>
+</tr>
+</tbody></table>
+<h2 id='create-a-tester'>Create a Tester</h2>
+<blockquote>
+<p>To create a tester, send this request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://hawkeye-staging.herokuapp.com/api/v1/testers/"</span>
+-X POST
+-d <span class="nv">first_name</span><span class="o">=</span>Jim
+-d <span class="nv">last_name</span><span class="o">=</span>Smith
+-d <span class="nv">email</span><span class="o">=</span>example@usehawkeye.com
+-d tester_segment_ids[]<span class="o">=</span>1
+</code></pre>
+<blockquote>
+<p>The above request returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">29</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jim"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"exafmsfsfple@usehawkeye.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sessions_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_test_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_test_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"creator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">69</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tester_segments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uzqvg-p9TAGUPkdWy43Q"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"sessions"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"session_invites"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint creates a new tester. The tester can be added to several segments by passing an array of tester segment ids to the <code>tester_segment_ids</code> parameter. </p>
+<h3 id='http-request-16'>HTTP Request</h3>
+<p><code>POST https://hawkeye-staging.herokuapp.com/api/v1/testers</code></p>
+<h3 id='url-parameters-15'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>first_name</td>
+<td>The tester&#39;s first_name</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td>The tester&#39;s last_name</td>
+</tr>
+<tr>
+<td>email</td>
+<td>The tester&#39;s email</td>
+</tr>
+<tr>
+<td>tester_segment_ids[]</td>
+<td>An array of tester segment ids</td>
+</tr>
+</tbody></table>
+<h2 id='update-a-tester'>Update a Tester</h2>
+<blockquote>
+<p>To update a tester, send this request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://hawkeye-staging.herokuapp.com/api/v1/testers/29"</span>
+-X POST
+-d <span class="nv">first_name</span><span class="o">=</span>New
+-d <span class="nv">last_name</span><span class="o">=</span>Smith
+-d <span class="nv">email</span><span class="o">=</span>example@usehawkeye.com
+-d tester_segment_ids[]<span class="o">=</span>1
+</code></pre>
+<blockquote>
+<p>The above request returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">29</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"exafmsfsfple@usehawkeye.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sessions_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_test_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_test_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"creator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">69</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tester_segments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uzqvg-p9TAGUPkdWy43Q"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"sessions"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"session_invites"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint updates a tester. Any segment ids passed to the  <code>tester_segment_ids</code> parameter will override previous segment ids, not append to them.</p>
+<h3 id='http-request-17'>HTTP Request</h3>
+<p><code>PUT https://hawkeye-staging.herokuapp.com/api/v1/testers/&lt;tester_id&gt;</code></p>
+<h3 id='url-parameters-16'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tester_id</td>
+<td>The identifier of the tester</td>
+</tr>
+<tr>
+<td>first_name</td>
+<td>The tester&#39;s first_name</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td>The tester&#39;s last_name</td>
+</tr>
+<tr>
+<td>email</td>
+<td>The tester&#39;s email</td>
+</tr>
+<tr>
+<td>tester_segment_ids[]</td>
+<td>An array of tester segment ids</td>
+</tr>
+</tbody></table>
+<h2 id='delete-a-tester'>Delete a Tester</h2>
+<blockquote>
+<p>To delete a tester, send this request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://hawkeye-staging.herokuapp.com/api/v1/testers/29"</span>
+-X DELETE
+</code></pre>
+<p>This endpoint deletes a tester.</p>
+<h3 id='http-request-18'>HTTP Request</h3>
+<p><code>DELETE https://hawkeye-staging.herokuapp.com/api/v1/testers/29</code></p>
+<h3 id='url-parameters-17'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tester_id</td>
+<td>The identifier of the tester</td>
+</tr>
+</tbody></table>
+<h1 id='tester-segmentation'>Tester Segmentation</h1>
+<p>A tester segment represents a group of testers, making it easy for users to invite or contact a large group of testers all at once. </p>
+<h2 id='get-all-tester-segments'>Get All Tester Segments</h2>
+<blockquote>
+<p>To get all testers segments, send this request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://hawkeye-staging.herokuapp.com/api/v1/testers/segments"</span>
+-X GET
+</code></pre>
+<blockquote>
+<p>The above request returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uzqvg-p9TAGUPkdWy43Q"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MQWPqJ_y188pCcJxNcSz"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint fetches a list of all segments.</p>
+<h3 id='http-request-19'>HTTP Request</h3>
+<p><code>GET https://hawkeye-staging.herokuapp.com/api/v1/testers/segments</code></p>
+<h2 id='get-all-testers-in-segment'>Get All Testers in Segment</h2>
+<blockquote>
+<p>To get all testers in a segment, send this request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://hawkeye-staging.herokuapp.com/api/v1/testers/segments/&lt;segment_uid&gt;"</span>
+-X GET
+</code></pre>
+<blockquote>
+<p>The above request returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MQWPqJ_y188pCcJxNcSz"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"testers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">27</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tester"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tester@usehawkeye.com"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sessions_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"first_test_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-23T22:35:05.961Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"last_test_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-23T22:35:05.961Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"creator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">68</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Matt"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Matt"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">29</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example@usehawkeye.com"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sessions_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"first_test_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"last_test_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"creator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">68</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Matt"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Matt"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint fetches all testers in a specific segment. NOTE: The url should end with the segment&#39;s uid, not its id.</p>
+<h3 id='http-request-20'>HTTP Request</h3>
+<p><code>GET https://hawkeye-staging.herokuapp.com/api/v1/testers/segments/&lt;segment_uid&gt;</code></p>
+<h3 id='url-parameters-18'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>segment_uid</td>
+<td>The uid of the segment</td>
+</tr>
+</tbody></table>
+<h2 id='create-a-tester-segment'>Create a Tester Segment</h2>
+<blockquote>
+<p>To create a tester segment, send this request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://hawkeye-staging.herokuapp.com/api/v1/testers/segments"</span>
+-X POST
+-d <span class="nv">name</span><span class="o">=</span>Example
+-d tester_ids[]<span class="o">=</span>27
+</code></pre>
+<blockquote>
+<p>The above request returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MQWPqJ_y188pCcJxNcSz"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"testers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">27</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tester"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tester@usehawkeye.com"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sessions_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"first_test_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-23T22:35:05.961Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"last_test_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-23T22:35:05.961Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"creator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">69</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Matt"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Moss"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint creates a new tester segment. To include a group of testers in the segment, pass an array of tester ids to the <code>tester_ids</code> parameter.</p>
+<h3 id='http-request-21'>HTTP Request</h3>
+<p><code>POST https://hawkeye-staging.herokuapp.com/api/v1/testers/segments</code></p>
+<h3 id='url-parameters-19'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>The name of the segment</td>
+</tr>
+<tr>
+<td>tester_ids</td>
+<td>The testers to included in the segment</td>
+</tr>
+</tbody></table>
+<h2 id='update-a-tester-segment'>Update a Tester Segment</h2>
+<blockquote>
+<p>To update a test segment, send this request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://hawkeye-staging.herokuapp.com/api/v1/testers/segments/&lt;segment_uid&gt;"</span>
+-X PUT
+-d <span class="nv">name</span><span class="o">=</span>New
+-d tester_ids[]<span class="o">=</span>29
+</code></pre>
+<blockquote>
+<p>The above request returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MQWPqJ_y188pCcJxNcSz"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"testers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">27</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tester"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tester@usehawkeye.com"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sessions_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"first_test_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-23T22:35:05.961Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"last_test_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-23T22:35:05.961Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"creator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">68</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Matt"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Moss"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">29</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example@usehawkeye.com"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sessions_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"first_test_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"last_test_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"creator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">68</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Matt"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Moss"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint updates a tester segment. To append testers to the segment, pass an array of tester ids to the <code>append_tester_ids</code> parameter. To remove testers from the segment, pass an array of tester ids to  <code>remove_tester_ids</code>. To set all testers that are part of the segment, use the <code>tester_ids</code> parameter. </p>
+<h3 id='http-request-22'>HTTP Request</h3>
+<p><code>PUT https://hawkeye-staging.herokuapp.com/api/v1/testers/segments/&lt;segment_uid&gt;</code></p>
+<h3 id='url-parameters-20'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>segment_uid</td>
+<td>The uid of the segment</td>
+</tr>
+<tr>
+<td>name</td>
+<td>The name of the segment</td>
+</tr>
+<tr>
+<td>tester_ids</td>
+<td>Array of tester ids to override existing testers</td>
+</tr>
+<tr>
+<td>append_tester_ids</td>
+<td>Array of tester ids to append to existing testers</td>
+</tr>
+<tr>
+<td>remove_tester_ids</td>
+<td>Array of testers to remove from existing testers</td>
 </tr>
 </tbody></table>
 
