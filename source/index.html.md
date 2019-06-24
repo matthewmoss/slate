@@ -1237,3 +1237,54 @@ tester_ids | Array of tester ids to override existing testers
 append_tester_ids | Array of tester ids to append to existing testers
 remove_tester_ids | Array of testers to remove from existing testers
 
+# Favorites
+
+## Get All Favorites
+
+> To get all favorites, send this request:
+
+```shell
+curl "https://hawkeye-staging.herokuapp.com/api/v1/favorites"
+-X GET
+```
+
+> The above request returns JSON structured like this:
+
+```json
+[
+    {
+        "id": 1101,
+        "title": "Example Session",
+        "content_type": "website",
+        "started_at": "2019-06-13T10:12:12.000Z",
+        "ended_at": "2019-06-13T10:20:12.000Z",
+        "favorite": true,
+        "thumbnail": null,
+        "thumbnail_metadata": null,
+        "video": null,
+        "screen_width": 200,
+        "screen_height": 600,
+        "tester": {
+            "id": 27,
+            "first_name": "Tester",
+            "last_name": "Smith",
+            "email": "tester@usehawkeye.com",
+            "sessions_count": 1,
+            "first_test_at": "2019-06-23T22:35:05.961Z",
+            "last_test_at": "2019-06-23T22:35:05.961Z",
+            "creator": {
+                "id": 69,
+                "first_name": null,
+                "last_name": null
+            },
+            "avatar": null
+        }
+    }
+]
+```
+This endpoint fetches favorited sessions across all projects in the organization.
+
+### HTTP Request
+
+`GET https://hawkeye-staging.herokuapp.com/api/v1/favorites`
+
