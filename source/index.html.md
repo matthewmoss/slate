@@ -762,3 +762,478 @@ This endpoint gets an individual page, including the eye positions and touch eve
 Parameter | Description
 --------- | -----------
 page_id | The identifier of the page
+
+# Testers
+
+## Get All Testers
+
+> To get all testers, send this request:
+
+```shell
+curl "https://hawkeye-staging.herokuapp.com/api/v1/testers/segments/all"
+-X GET
+```
+
+> The above request returns JSON structured like this:
+
+```json
+{
+    "id": null,
+    "name": "All",
+    "uid": "all",
+    "testers": [
+        {
+            "id": 27,
+            "first_name": "Tester",
+            "last_name": "Smith",
+            "email": "tester@usehawkeye.com",
+            "sessions_count": 1,
+            "first_test_at": "2019-06-23T22:35:05.961Z",
+            "last_test_at": "2019-06-23T22:35:05.961Z",
+            "creator": {
+                "id": 68,
+                "first_name": "Matt",
+                "last_name": "Moss"
+            },
+            "avatar": null
+        },
+        {
+            "id": 28,
+            "first_name": "Jim",
+            "last_name": "Smith",
+            "email": "example@usehawkeye.com",
+            "sessions_count": 0,
+            "first_test_at": null,
+            "last_test_at": null,
+            "creator": {
+                "id": 68,
+                "first_name": "Matt",
+                "last_name": "Moss"
+            },
+            "avatar": null
+        }
+    ]
+}
+```
+This endpoint fetches all testers.
+
+### HTTP Request
+
+`GET https://hawkeye-staging.herokuapp.com/api/v1/testers/segments/all`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+segment_id | The identifier of the segment
+
+## Get an Individual Tester
+
+> To get an individual testers, send this request:
+
+```shell
+curl "https://hawkeye-staging.herokuapp.com/api/v1/testers/<tester_id>"
+-X GET
+```
+
+> The above request returns JSON structured like this:
+
+```json
+{
+    "id": 27,
+    "first_name": "Tester",
+    "last_name": "Smith",
+    "email": "tester@usehawkeye.com",
+    "sessions_count": 1,
+    "first_test_at": "2019-06-23T22:35:05.961Z",
+    "last_test_at": "2019-06-23T22:35:05.961Z",
+    "creator": {
+        "id": 69,
+        "first_name": "Matt",
+        "last_name": "Moss"
+    },
+    "avatar": null,
+    "tester_segments": [
+        {
+            "id": 2,
+            "name": "Example",
+            "uid": "MQWPqJ_y188pCcJxNcSz"
+        }
+    ],
+    "sessions": [
+        {
+            "id": 1101,
+            "title": "Example Session",
+            "content_type": "website",
+            "started_at": "2019-06-13T10:12:12.000Z",
+            "ended_at": "2019-06-13T10:20:12.000Z",
+            "favorite": false,
+            "thumbnail": null,
+            "thumbnail_metadata": null,
+            "video": null,
+            "screen_width": 200,
+            "screen_height": 600
+        }
+    ],
+    "session_invites": []
+}
+```
+This endpoint fetches an individual tester, including all of the sessions they have completed.
+
+### HTTP Request
+
+`GET https://hawkeye-staging.herokuapp.com/api/v1/testers/<tester_id>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+tester_id | The identifier of the tester
+
+## Create a Tester
+
+> To create a tester, send this request:
+
+```shell
+curl "https://hawkeye-staging.herokuapp.com/api/v1/testers/"
+-X POST
+-d first_name=Jim
+-d last_name=Smith
+-d email=example@usehawkeye.com
+-d tester_segment_ids[]=1
+```
+
+> The above request returns JSON structured like this:
+
+```json
+{
+    "id": 29,
+    "first_name": "Jim",
+    "last_name": "Smith",
+    "email": "exafmsfsfple@usehawkeye.com",
+    "sessions_count": 0,
+    "first_test_at": null,
+    "last_test_at": null,
+    "creator": {
+        "id": 69,
+        "first_name": null,
+        "last_name": null
+    },
+    "avatar": null,
+    "tester_segments": [
+        {
+            "id": 1,
+            "name": "Example",
+            "uid": "uzqvg-p9TAGUPkdWy43Q"
+        }
+    ],
+    "sessions": [],
+    "session_invites": []
+}
+```
+This endpoint creates a new tester. The tester can be added to several segments by passing an array of tester segment ids to the `tester_segment_ids` parameter. 
+
+### HTTP Request
+
+`POST https://hawkeye-staging.herokuapp.com/api/v1/testers`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+first_name | The tester's first_name
+last_name | The tester's last_name
+email | The tester's email
+tester_segment_ids[] | An array of tester segment ids
+
+## Update a Tester
+
+> To update a tester, send this request:
+
+```shell
+curl "https://hawkeye-staging.herokuapp.com/api/v1/testers/29"
+-X POST
+-d first_name=New
+-d last_name=Smith
+-d email=example@usehawkeye.com
+-d tester_segment_ids[]=1
+```
+
+> The above request returns JSON structured like this:
+
+```json
+{
+    "id": 29,
+    "first_name": "New",
+    "last_name": "Smith",
+    "email": "exafmsfsfple@usehawkeye.com",
+    "sessions_count": 0,
+    "first_test_at": null,
+    "last_test_at": null,
+    "creator": {
+        "id": 69,
+        "first_name": null,
+        "last_name": null
+    },
+    "avatar": null,
+    "tester_segments": [
+        {
+            "id": 1,
+            "name": "Example",
+            "uid": "uzqvg-p9TAGUPkdWy43Q"
+        }
+    ],
+    "sessions": [],
+    "session_invites": []
+}
+```
+This endpoint updates a tester. Any segment ids passed to the  `tester_segment_ids` parameter will override previous segment ids, not append to them.
+
+### HTTP Request
+
+`PUT https://hawkeye-staging.herokuapp.com/api/v1/testers/<tester_id>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+tester_id | The identifier of the tester
+first_name | The tester's first_name
+last_name | The tester's last_name
+email | The tester's email
+tester_segment_ids[] | An array of tester segment ids
+
+## Delete a Tester
+
+> To delete a tester, send this request:
+
+```shell
+curl "https://hawkeye-staging.herokuapp.com/api/v1/testers/29"
+-X DELETE
+```
+This endpoint deletes a tester.
+
+### HTTP Request
+
+`DELETE https://hawkeye-staging.herokuapp.com/api/v1/testers/29`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+tester_id | The identifier of the tester
+
+# Tester Segmentation
+A tester segment represents a group of testers, making it easy for users to invite or contact a large group of testers all at once. 
+
+## Get All Tester Segments
+
+> To get all testers segments, send this request:
+
+```shell
+curl "https://hawkeye-staging.herokuapp.com/api/v1/testers/segments"
+-X GET
+```
+
+> The above request returns JSON structured like this:
+
+```json
+[
+    {
+        "id": 1,
+        "name": "Example",
+        "uid": "uzqvg-p9TAGUPkdWy43Q"
+    },
+    {
+        "id": 2,
+        "name": "Example",
+        "uid": "MQWPqJ_y188pCcJxNcSz"
+    }
+]
+```
+This endpoint fetches a list of all segments.
+
+### HTTP Request
+
+`GET https://hawkeye-staging.herokuapp.com/api/v1/testers/segments`
+
+## Get All Testers in Segment
+
+> To get all testers in a segment, send this request:
+
+```shell
+curl "https://hawkeye-staging.herokuapp.com/api/v1/testers/segments/<segment_uid>"
+-X GET
+```
+
+> The above request returns JSON structured like this:
+
+```json
+{
+    "id": 2,
+    "name": "Example",
+    "uid": "MQWPqJ_y188pCcJxNcSz",
+    "testers": [
+        {
+            "id": 27,
+            "first_name": "Tester",
+            "last_name": "Smith",
+            "email": "tester@usehawkeye.com",
+            "sessions_count": 1,
+            "first_test_at": "2019-06-23T22:35:05.961Z",
+            "last_test_at": "2019-06-23T22:35:05.961Z",
+            "creator": {
+                "id": 68,
+                "first_name": "Matt",
+                "last_name": "Matt"
+            },
+            "avatar": null
+        },
+        {
+            "id": 29,
+            "first_name": "New",
+            "last_name": "Smith",
+            "email": "example@usehawkeye.com",
+            "sessions_count": 0,
+            "first_test_at": null,
+            "last_test_at": null,
+            "creator": {
+                "id": 68,
+                "first_name": "Matt",
+                "last_name": "Matt"
+            },
+            "avatar": null
+        }
+    ]
+}
+```
+This endpoint fetches all testers in a specific segment. NOTE: The url should end with the segment's uid, not its id.
+
+### HTTP Request
+
+`GET https://hawkeye-staging.herokuapp.com/api/v1/testers/segments/<segment_uid>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+segment_uid | The uid of the segment
+
+## Create a Tester Segment
+
+> To create a tester segment, send this request:
+
+```shell
+curl "https://hawkeye-staging.herokuapp.com/api/v1/testers/segments"
+-X POST
+-d name=Example
+-d tester_ids[]=27
+```
+
+> The above request returns JSON structured like this:
+
+```json
+{
+    "id": 2,
+    "name": "Example",
+    "uid": "MQWPqJ_y188pCcJxNcSz",
+    "testers": [
+        {
+            "id": 27,
+            "first_name": "Tester",
+            "last_name": "Smith",
+            "email": "tester@usehawkeye.com",
+            "sessions_count": 1,
+            "first_test_at": "2019-06-23T22:35:05.961Z",
+            "last_test_at": "2019-06-23T22:35:05.961Z",
+            "creator": {
+                "id": 69,
+                "first_name": "Matt",
+                "last_name": "Moss"
+            },
+            "avatar": null
+        }
+    ]
+}
+```
+This endpoint creates a new tester segment. To include a group of testers in the segment, pass an array of tester ids to the `tester_ids` parameter.
+
+### HTTP Request
+
+`POST https://hawkeye-staging.herokuapp.com/api/v1/testers/segments`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+name | The name of the segment
+tester_ids | The testers to included in the segment
+
+## Update a Tester Segment
+
+> To update a test segment, send this request:
+
+```shell
+curl "https://hawkeye-staging.herokuapp.com/api/v1/testers/segments/<segment_uid>"
+-X PUT
+-d name=New
+-d tester_ids[]=29
+```
+
+> The above request returns JSON structured like this:
+
+```json
+{
+    "id": 2,
+    "name": "New",
+    "uid": "MQWPqJ_y188pCcJxNcSz",
+    "testers": [
+        {
+            "id": 27,
+            "first_name": "Tester",
+            "last_name": "Smith",
+            "email": "tester@usehawkeye.com",
+            "sessions_count": 1,
+            "first_test_at": "2019-06-23T22:35:05.961Z",
+            "last_test_at": "2019-06-23T22:35:05.961Z",
+            "creator": {
+                "id": 68,
+                "first_name": "Matt",
+                "last_name": "Moss"
+            },
+            "avatar": null
+        },
+        {
+            "id": 29,
+            "first_name": "New",
+            "last_name": "Smith",
+            "email": "example@usehawkeye.com",
+            "sessions_count": 0,
+            "first_test_at": null,
+            "last_test_at": null,
+            "creator": {
+                "id": 68,
+                "first_name": "Matt",
+                "last_name": "Moss"
+            },
+            "avatar": null
+        }
+    ]
+}
+```
+This endpoint updates a tester segment. To append testers to the segment, pass an array of tester ids to the `append_tester_ids` parameter. To remove testers from the segment, pass an array of tester ids to  `remove_tester_ids`. To set all testers that are part of the segment, use the `tester_ids` parameter. 
+
+### HTTP Request
+
+`PUT https://hawkeye-staging.herokuapp.com/api/v1/testers/segments/<segment_uid>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+segment_uid | The uid of the segment
+name | The name of the segment
+tester_ids | Array of tester ids to override existing testers
+append_tester_ids | Array of tester ids to append to existing testers
+remove_tester_ids | Array of testers to remove from existing testers
+
