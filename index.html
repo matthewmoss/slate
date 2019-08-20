@@ -253,6 +253,9 @@
                   <li>
                     <a href="#get-all-projects" class="toc-h2 toc-link" data-title="Get All Projects">Get All Projects</a>
                   </li>
+                  <li>
+                    <a href="#get-an-individual-project" class="toc-h2 toc-link" data-title="Get an Individual project">Get an Individual project</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -328,6 +331,14 @@
               <ul class="toc-list-h2">
                   <li>
                     <a href="#get-all-favorites" class="toc-h2 toc-link" data-title="Get All Favorites">Get All Favorites</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#session-invites" class="toc-h1 toc-link" data-title="Session Invites">Session Invites</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#send-session-invigations" class="toc-h2 toc-link" data-title="Send Session Invigations">Send Session Invigations</a>
                   </li>
               </ul>
           </li>
@@ -725,6 +736,127 @@ Requests must include ALL the auth headers described above.
 <td>Whether sessions should be included for each project. Defaults to false, meaning sessions will be included.</td>
 </tr>
 </tbody></table>
+<h2 id='get-an-individual-project'>Get an Individual project</h2>
+<blockquote>
+<p>To get an individual project, send this request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://hawkeye-staging.herokuapp.com/api/v1/projects/&lt;project_id&gt;"</span>
+-H <span class="s2">"Access-Token: v8jZB-iMSwcJhIPTTqrYvg"</span>
+-H <span class="s2">"Token-Type: Bearer"</span>
+-H <span class="s2">"Client: OVwx7W72CqL8qFwLw_2Lkg"</span>
+-H <span class="s2">"Expiry: 1568617089"</span>
+-H <span class="s2">"Uid: authexample@usehawkeye.com"</span>
+</code></pre>
+<blockquote>
+<p>The above request returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Project 2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"website"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--a8dfb753e249df0d27fed026312cb018f7f5b2a3/instagram_thumb.png"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"thumbnail_metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"identified"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"instructions"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"welcome_message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"exit_message"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"exit_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"exit_title"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"eye_tracking_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"optional"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"screen_recording_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"audio_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hide_visualizations"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"prompt_user_info"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sessions_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">26</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sessions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">269</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ended_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"favorite"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"thumbnail_metadata"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"video"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"screen_width"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"screen_height"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"pages_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"visited"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-14T05:40:04.954Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-14T05:40:04.954Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"device_model"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"device_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"tester"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Matt"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Moss"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"matthewmoss@me.com"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"sessions_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"first_test_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-12T17:41:22.194Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"last_test_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-14T05:40:04.949Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"creator"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">268</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ended_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"favorite"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"thumbnail_metadata"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"video"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"screen_width"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"screen_height"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"pages_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"visited"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-14T05:38:30.447Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-14T05:38:30.447Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"device_model"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"device_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"tester"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Matt"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Moss"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"matthewmoss@me.com"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"sessions_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"first_test_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-12T17:41:22.194Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"last_test_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-14T05:40:04.949Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"creator"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"public_invite"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">51</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uXytinYZWFx64iyUbCuE"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/session_invites/uXytinYZWFx64iyUbCuE"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves an individual project, including it&#39;s sessions.</p>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>GET https://hawkeye-staging.herokuapp.com/api/v1/projects/&lt;project_id&gt;</code></p>
 <h1 id='sessions'>Sessions</h1>
 <p>A session represents a single test conducted using Hawkeye. Each session can contain multiple pages (which are used to generate heatmaps) and a screen recording.</p>
 <h2 id='create-a-session'>Create a Session</h2>
@@ -768,7 +900,7 @@ Requests must include ALL the auth headers described above.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint creates a new session for a given project. All pages visited during the test, complete with eye position and touch events for each page, should be included in this request. </p>
-<h3 id='http-request-7'>HTTP Request</h3>
+<h3 id='http-request-8'>HTTP Request</h3>
 <p><code>POST https://hawkeye-staging.herokuapp.com/api/v1/projects/&lt;project_id&gt;/sessions</code></p>
 <h3 id='url-parameters-6'>URL Parameters</h3>
 <table><thead>
@@ -853,6 +985,7 @@ Requests must include ALL the auth headers described above.
         </span><span class="s2">"video"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="s2">"screen_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
         </span><span class="s2">"screen_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"visited"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
         </span><span class="s2">"tester"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
             </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tester"</span><span class="p">,</span><span class="w">
@@ -862,6 +995,7 @@ Requests must include ALL the auth headers described above.
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1012</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"visited"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
         </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Session"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"website"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-13T10:12:12.000Z"</span><span class="p">,</span><span class="w">
@@ -881,7 +1015,7 @@ Requests must include ALL the auth headers described above.
 </blockquote>
 
 <p>This endpoint gets all sessions for a given project. This does not include page data. To fetch the complete data for a session, including page metadata, see <a href="#get-an-individual-session">Get an Individual Session</a></p>
-<h3 id='http-request-8'>HTTP Request</h3>
+<h3 id='http-request-9'>HTTP Request</h3>
 <p><code>GET https://hawkeye-staging.herokuapp.com/api/v1/projects/&lt;project_id&gt;/sessions</code></p>
 <h3 id='url-parameters-7'>URL Parameters</h3>
 <table><thead>
@@ -918,6 +1052,15 @@ Requests must include ALL the auth headers described above.
     </span><span class="s2">"video"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"screen_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"screen_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"visited"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"visitors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Matt"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Moss"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
     </span><span class="s2">"pages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2590</span><span class="p">,</span><span class="w">
@@ -953,7 +1096,7 @@ Requests must include ALL the auth headers described above.
 <p>This endpoint gets an individual session. </p>
 
 <p>By default, complete page data will be included. If you&#39;d like to get back thumbnails and tiltes for each page without eye positions and touch event data, set the <code>shallow_pages</code> to <code>true</code>. To fetch the complete data for an individual page, see <a href="#get-an-individual-page">Get an Individual Page</a> and to fetch the complete data for all pages in a session, see <a href="#get-all-pages">Get All Pages</a>.</p>
-<h3 id='http-request-9'>HTTP Request</h3>
+<h3 id='http-request-10'>HTTP Request</h3>
 <p><code>GET https://hawkeye-staging.herokuapp.com/api/v1/sessions/&lt;session_id&gt;</code></p>
 <h3 id='url-parameters-8'>URL Parameters</h3>
 <table><thead>
@@ -998,7 +1141,7 @@ Requests must include ALL the auth headers described above.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint updates a session.</p>
-<h3 id='http-request-10'>HTTP Request</h3>
+<h3 id='http-request-11'>HTTP Request</h3>
 <p><code>GET https://hawkeye-staging.herokuapp.com/api/v1/sessions/&lt;session_id&gt;</code></p>
 <h3 id='url-parameters-9'>URL Parameters</h3>
 <table><thead>
@@ -1028,7 +1171,7 @@ Requests must include ALL the auth headers described above.
 -X DELETE
 </code></pre>
 <p>This endpoint deletes a session.</p>
-<h3 id='http-request-11'>HTTP Request</h3>
+<h3 id='http-request-12'>HTTP Request</h3>
 <p><code>DELETE https://hawkeye-staging.herokuapp.com/api/v1/sessions/&lt;session_id&gt;</code></p>
 <h3 id='url-parameters-10'>URL Parameters</h3>
 <table><thead>
@@ -1112,7 +1255,7 @@ Requests must include ALL the auth headers described above.
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>This endpoint gets all complete data for all pages in a session, including the eye positions and touch events recorded during the test. To fetch page metadata without the complete data, see <a href="#get-an-individual-session">Get an Individual Session</a>. </p>
-<h3 id='http-request-12'>HTTP Request</h3>
+<h3 id='http-request-13'>HTTP Request</h3>
 <p><code>GET https://hawkeye-staging.herokuapp.com/api/v1/sessions/&lt;session_id&gt;/pages</code></p>
 <h3 id='url-parameters-11'>URL Parameters</h3>
 <table><thead>
@@ -1177,7 +1320,7 @@ Requests must include ALL the auth headers described above.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint gets an individual page, including the eye positions and touch events recorded during the page visit.</p>
-<h3 id='http-request-13'>HTTP Request</h3>
+<h3 id='http-request-14'>HTTP Request</h3>
 <p><code>GET https://hawkeye-staging.herokuapp.com/api/v1/pages/&lt;page_id&gt;</code></p>
 <h3 id='url-parameters-12'>URL Parameters</h3>
 <table><thead>
@@ -1240,7 +1383,7 @@ Requests must include ALL the auth headers described above.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint fetches all testers.</p>
-<h3 id='http-request-14'>HTTP Request</h3>
+<h3 id='http-request-15'>HTTP Request</h3>
 <p><code>GET https://hawkeye-staging.herokuapp.com/api/v1/testers/segments/all</code></p>
 <h3 id='url-parameters-13'>URL Parameters</h3>
 <table><thead>
@@ -1304,7 +1447,7 @@ Requests must include ALL the auth headers described above.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint fetches an individual tester, including all of the sessions they have completed.</p>
-<h3 id='http-request-15'>HTTP Request</h3>
+<h3 id='http-request-16'>HTTP Request</h3>
 <p><code>GET https://hawkeye-staging.herokuapp.com/api/v1/testers/&lt;tester_id&gt;</code></p>
 <h3 id='url-parameters-14'>URL Parameters</h3>
 <table><thead>
@@ -1358,7 +1501,7 @@ Requests must include ALL the auth headers described above.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint creates a new tester. The tester can be added to several segments by passing an array of tester segment ids to the <code>tester_segment_ids</code> parameter. </p>
-<h3 id='http-request-16'>HTTP Request</h3>
+<h3 id='http-request-17'>HTTP Request</h3>
 <p><code>POST https://hawkeye-staging.herokuapp.com/api/v1/testers</code></p>
 <h3 id='url-parameters-15'>URL Parameters</h3>
 <table><thead>
@@ -1424,7 +1567,7 @@ Requests must include ALL the auth headers described above.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint updates a tester. Any segment ids passed to the  <code>tester_segment_ids</code> parameter will override previous segment ids, not append to them.</p>
-<h3 id='http-request-17'>HTTP Request</h3>
+<h3 id='http-request-18'>HTTP Request</h3>
 <p><code>PUT https://hawkeye-staging.herokuapp.com/api/v1/testers/&lt;tester_id&gt;</code></p>
 <h3 id='url-parameters-16'>URL Parameters</h3>
 <table><thead>
@@ -1462,7 +1605,7 @@ Requests must include ALL the auth headers described above.
 -X DELETE
 </code></pre>
 <p>This endpoint deletes a tester.</p>
-<h3 id='http-request-18'>HTTP Request</h3>
+<h3 id='http-request-19'>HTTP Request</h3>
 <p><code>DELETE https://hawkeye-staging.herokuapp.com/api/v1/testers/29</code></p>
 <h3 id='url-parameters-17'>URL Parameters</h3>
 <table><thead>
@@ -1502,7 +1645,7 @@ Requests must include ALL the auth headers described above.
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>This endpoint fetches a list of all segments.</p>
-<h3 id='http-request-19'>HTTP Request</h3>
+<h3 id='http-request-20'>HTTP Request</h3>
 <p><code>GET https://hawkeye-staging.herokuapp.com/api/v1/testers/segments</code></p>
 <h2 id='get-all-testers-in-segment'>Get All Testers in Segment</h2>
 <blockquote>
@@ -1553,7 +1696,7 @@ Requests must include ALL the auth headers described above.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint fetches all testers in a specific segment. NOTE: The url should end with the segment&#39;s uid, not its id.</p>
-<h3 id='http-request-20'>HTTP Request</h3>
+<h3 id='http-request-21'>HTTP Request</h3>
 <p><code>GET https://hawkeye-staging.herokuapp.com/api/v1/testers/segments/&lt;segment_uid&gt;</code></p>
 <h3 id='url-parameters-18'>URL Parameters</h3>
 <table><thead>
@@ -1603,7 +1746,7 @@ Requests must include ALL the auth headers described above.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint creates a new tester segment. To include a group of testers in the segment, pass an array of tester ids to the <code>tester_ids</code> parameter.</p>
-<h3 id='http-request-21'>HTTP Request</h3>
+<h3 id='http-request-22'>HTTP Request</h3>
 <p><code>POST https://hawkeye-staging.herokuapp.com/api/v1/testers/segments</code></p>
 <h3 id='url-parameters-19'>URL Parameters</h3>
 <table><thead>
@@ -1672,7 +1815,7 @@ Requests must include ALL the auth headers described above.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint updates a tester segment. To append testers to the segment, pass an array of tester ids to the <code>append_tester_ids</code> parameter. To remove testers from the segment, pass an array of tester ids to  <code>remove_tester_ids</code>. To set all testers that are part of the segment, use the <code>tester_ids</code> parameter. </p>
-<h3 id='http-request-22'>HTTP Request</h3>
+<h3 id='http-request-23'>HTTP Request</h3>
 <p><code>PUT https://hawkeye-staging.herokuapp.com/api/v1/testers/segments/&lt;segment_uid&gt;</code></p>
 <h3 id='url-parameters-20'>URL Parameters</h3>
 <table><thead>
@@ -1744,8 +1887,71 @@ Requests must include ALL the auth headers described above.
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>This endpoint fetches favorited sessions across all projects in the organization.</p>
-<h3 id='http-request-23'>HTTP Request</h3>
+<h3 id='http-request-24'>HTTP Request</h3>
 <p><code>GET https://hawkeye-staging.herokuapp.com/api/v1/favorites</code></p>
+<h1 id='session-invites'>Session Invites</h1><h2 id='send-session-invigations'>Send Session Invigations</h2>
+<blockquote>
+<p>To send session invitations, send this request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://hawkeye-staging.herokuapp.com/api/v1/projects/&lt;project_id&gt;/session_invites"</span>
+-X POST
+-d <span class="nv">name</span><span class="o">=</span>Example
+-d testers[][email]<span class="o">=</span>matthewmoss@me.com
+-d testers[][first_name]<span class="o">=</span>Matt
+-d testers[][last_name]<span class="o">=</span>Moss
+-d testers[][email]<span class="o">=</span>sdfsdf@me.com
+</code></pre>
+<blockquote>
+<p>The above request returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">66</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"83dEgUXwcTZm6Rx_44tx"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/session_invites/83dEgUXwcTZm6Rx_44tx"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">67</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"_ed5TncnvyJSWEQtVSuk"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/session_invites/_ed5TncnvyJSWEQtVSuk"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint sends email invitations to a group of testers.</p>
+<h3 id='http-request-25'>HTTP Request</h3>
+<p><code>POST https://hawkeye-staging.herokuapp.com/api/v1/testers/segments</code></p>
+<h3 id='url-parameters-21'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The project testers are being invited to.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>An optional name for the invitation.</td>
+</tr>
+<tr>
+<td>testers</td>
+<td>Array of testers to be invited.</td>
+</tr>
+<tr>
+<td>testers[][email]</td>
+<td>Email address of a tester</td>
+</tr>
+<tr>
+<td>testers[][first_name]</td>
+<td>First name of a tester</td>
+</tr>
+<tr>
+<td>testers[][last_name]</td>
+<td>Last name of a tester</td>
+</tr>
+</tbody></table>
 
       </div>
       <div class="dark-box">
