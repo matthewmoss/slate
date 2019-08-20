@@ -342,6 +342,133 @@ Parameter | Description
 --------- | -----------
 shallow_sessions | Whether sessions should be included for each project. Defaults to false, meaning sessions will be included.
 
+## Get an Individual project
+
+> To get an individual project, send this request:
+
+```shell
+curl "https://hawkeye-staging.herokuapp.com/api/v1/projects/<project_id>"
+-H "Access-Token: v8jZB-iMSwcJhIPTTqrYvg"
+-H "Token-Type: Bearer"
+-H "Client: OVwx7W72CqL8qFwLw_2Lkg"
+-H "Expiry: 1568617089"
+-H "Uid: authexample@usehawkeye.com"
+```
+
+> The above request returns JSON structured like this:
+
+```json
+{
+    "id": 16,
+    "title": "Example Project 2",
+    "content_type": "website",
+    "url": null,
+    "thumbnail": "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--a8dfb753e249df0d27fed026312cb018f7f5b2a3/instagram_thumb.png",
+    "thumbnail_metadata": {
+        "identified": true
+    },
+    "image": null,
+    "instructions": null,
+    "welcome_message": null,
+    "exit_message": null,
+    "exit_url": null,
+    "exit_title": null,
+    "eye_tracking_type": "optional",
+    "screen_recording_enabled": true,
+    "audio_enabled": true,
+    "hide_visualizations": true,
+    "prompt_user_info": true,
+    "sessions_count": 26,
+    "sessions": [
+        {
+            "id": 269,
+            "state": null,
+            "title": null,
+            "content_type": null,
+            "started_at": null,
+            "ended_at": null,
+            "favorite": false,
+            "thumbnail": null,
+            "thumbnail_metadata": null,
+            "video": null,
+            "screen_width": null,
+            "screen_height": null,
+            "pages_count": 0,
+            "visited": false,
+            "created_at": "2019-08-14T05:40:04.954Z",
+            "updated_at": "2019-08-14T05:40:04.954Z",
+            "device_model": null,
+            "device_type": null,
+            "user": {
+                "id": 3,
+                "first_name": null,
+                "last_name": null,
+                "avatar": null
+            },
+            "tester": {
+                "id": 17,
+                "first_name": "Matt",
+                "last_name": "Moss",
+                "email": "matthewmoss@me.com",
+                "sessions_count": 12,
+                "first_test_at": "2019-07-12T17:41:22.194Z",
+                "last_test_at": "2019-08-14T05:40:04.949Z",
+                "creator": null,
+                "avatar": null
+            }
+        },
+        {
+            "id": 268,
+            "state": null,
+            "title": null,
+            "content_type": null,
+            "started_at": null,
+            "ended_at": null,
+            "favorite": false,
+            "thumbnail": null,
+            "thumbnail_metadata": null,
+            "video": null,
+            "screen_width": null,
+            "screen_height": null,
+            "pages_count": 0,
+            "visited": false,
+            "created_at": "2019-08-14T05:38:30.447Z",
+            "updated_at": "2019-08-14T05:38:30.447Z",
+            "device_model": null,
+            "device_type": null,
+            "user": {
+                "id": 2,
+                "first_name": null,
+                "last_name": null,
+                "avatar": null
+            },
+            "tester": {
+                "id": 17,
+                "first_name": "Matt",
+                "last_name": "Moss",
+                "email": "matthewmoss@me.com",
+                "sessions_count": 12,
+                "first_test_at": "2019-07-12T17:41:22.194Z",
+                "last_test_at": "2019-08-14T05:40:04.949Z",
+                "creator": null,
+                "avatar": null
+            }
+        }
+    ],
+    "public_invite": {
+        "id": 51,
+        "token": "uXytinYZWFx64iyUbCuE",
+        "url": "/session_invites/uXytinYZWFx64iyUbCuE"
+    }
+}
+```
+
+This endpoint retrieves an individual project, including it's sessions.
+
+### HTTP Request
+
+`GET https://hawkeye-staging.herokuapp.com/api/v1/projects/<project_id>`
+
 # Sessions
 
 A session represents a single test conducted using Hawkeye. Each session can contain multiple pages (which are used to generate heatmaps) and a screen recording.
@@ -438,6 +565,7 @@ curl "https://hawkeye-staging.herokuapp.com/api/v1/projects/<project_id>/session
         "video": null,
         "screen_width": 200,
         "screen_height": 600,
+        "visited": true,
         "tester": {
             "id": 23,
             "first_name": "Tester",
@@ -447,6 +575,7 @@ curl "https://hawkeye-staging.herokuapp.com/api/v1/projects/<project_id>/session
     },
     {
         "id": 1012,
+        "visited": false,
         "title": "Example Session",
         "content_type": "website",
         "started_at": "2019-06-13T10:12:12.000Z",
@@ -500,6 +629,15 @@ curl "https://hawkeye-staging.herokuapp.com/api/v1/sessions/<session_id>"
     "video": null,
     "screen_width": 200,
     "screen_height": 600,
+    "visited": true,
+    "visitors": [
+        {
+            "id": 17,
+            "first_name": "Matt",
+            "last_name": "Moss",
+            "avatar": null
+        }
+    ],
     "pages": [
         {
             "id": 2590,
@@ -1288,3 +1426,51 @@ This endpoint fetches favorited sessions across all projects in the organization
 
 `GET https://hawkeye-staging.herokuapp.com/api/v1/favorites`
 
+# Session Invites
+
+## Send Session Invigations
+
+> To send session invitations, send this request:
+
+```shell
+curl "https://hawkeye-staging.herokuapp.com/api/v1/projects/<project_id>/session_invites"
+-X POST
+-d name=Example
+-d testers[][email]=matthewmoss@me.com
+-d testers[][first_name]=Matt
+-d testers[][last_name]=Moss
+-d testers[][email]=sdfsdf@me.com
+```
+
+> The above request returns JSON structured like this:
+
+```json
+[
+    {
+        "id": 66,
+        "token": "83dEgUXwcTZm6Rx_44tx",
+        "url": "/session_invites/83dEgUXwcTZm6Rx_44tx"
+    },
+    {
+        "id": 67,
+        "token": "_ed5TncnvyJSWEQtVSuk",
+        "url": "/session_invites/_ed5TncnvyJSWEQtVSuk"
+    }
+]
+```
+This endpoint sends email invitations to a group of testers.
+
+### HTTP Request
+
+`POST https://hawkeye-staging.herokuapp.com/api/v1/testers/segments`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+project_id | The project testers are being invited to.
+name | An optional name for the invitation.
+testers | Array of testers to be invited.
+testers[][email] | Email address of a tester
+testers[][first_name] | First name of a tester
+testers[][last_name] | Last name of a tester
