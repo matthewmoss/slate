@@ -662,6 +662,110 @@ curl "https://hawkeye-staging.herokuapp.com/api/v1/sessions/<session_id>"
             "thumbnail_metadata": null
         }
     ],
+    "events": [
+        {
+            "id": 5,
+            "started_at": "2019-10-22T18:11:05.103Z",
+            "ended_at": "2019-10-22T18:11:21.520Z",
+            "eventable_type": "Page",
+            "relative_started_at": 0.001,
+            "relative_ended_at": 16.418,
+            "duration": 16.417,
+            "duration_percent": 0.9798269173381082,
+            "started_at_percent": 5.96836765144733e-05,
+            "ended_at_percent": 0.9798866010146225,
+            "eventable": {
+                "id": 4276,
+                "token": "RiOfyEijCRPWQUu-Kb9wHg",
+                "state": "completed",
+                "title": "Online payment processing for internet businesses - Stripe",
+                "started_at": "2019-10-22T18:11:05.103Z",
+                "ended_at": "2019-10-22T18:11:21.520Z",
+                "width": 375.0,
+                "height": 812.0,
+                "scrollable": true,
+                "thumbnail": "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBbEVtIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--ca334b0a9888393fb5e94db60706ee20dde6ba29/thumbnail.png",
+                "thumbnail_metadata": {
+                    "identified": true,
+                    "width": 231,
+                    "height": 500,
+                    "analyzed": true
+                }
+            }
+        },
+        {
+            "id": 1,
+            "started_at": "2019-10-22T18:11:12.997Z",
+            "ended_at": "2019-10-22T18:11:13.303Z",
+            "eventable_type": "Gesture",
+            "relative_started_at": 7.895,
+            "relative_ended_at": 8.201,
+            "duration": 0.306,
+            "duration_percent": 0.01826320501342883,
+            "started_at_percent": 0.47120262608176666,
+            "ended_at_percent": 0.48946583109519554,
+            "eventable": {
+                "id": 20114,
+                "started_at": "2019-10-22T18:11:12.997Z",
+                "ended_at": "2019-10-22T18:11:13.303Z",
+                "is_tap": false
+            }
+        },
+        {
+            "id": 2,
+            "started_at": "2019-10-22T18:11:14.155Z",
+            "ended_at": "2019-10-22T18:11:14.287Z",
+            "eventable_type": "Gesture",
+            "relative_started_at": 9.053,
+            "relative_ended_at": 9.185,
+            "duration": 0.132,
+            "duration_percent": 0.007878245299910476,
+            "started_at_percent": 0.5403163234855268,
+            "ended_at_percent": 0.5481945687854373,
+            "eventable": {
+                "id": 20115,
+                "started_at": "2019-10-22T18:11:14.155Z",
+                "ended_at": "2019-10-22T18:11:14.287Z",
+                "is_tap": false
+            }
+        },
+        {
+            "id": 3,
+            "started_at": "2019-10-22T18:11:14.487Z",
+            "ended_at": "2019-10-22T18:11:14.912Z",
+            "eventable_type": "Gesture",
+            "relative_started_at": 9.385,
+            "relative_ended_at": 9.81,
+            "duration": 0.425,
+            "duration_percent": 0.02536556251865115,
+            "started_at_percent": 0.5601313040883319,
+            "ended_at_percent": 0.5854968666069831,
+            "eventable": {
+                "id": 20116,
+                "started_at": "2019-10-22T18:11:14.487Z",
+                "ended_at": "2019-10-22T18:11:14.912Z",
+                "is_tap": false
+            }
+        },
+        {
+            "id": 4,
+            "started_at": "2019-10-22T18:11:19.605Z",
+            "ended_at": "2019-10-22T18:11:19.740Z",
+            "eventable_type": "Gesture",
+            "relative_started_at": 14.503,
+            "relative_ended_at": 14.638,
+            "duration": 0.135,
+            "duration_percent": 0.008057296329453895,
+            "started_at_percent": 0.8655923604894062,
+            "ended_at_percent": 0.8736496568188601,
+            "eventable": {
+                "id": 20117,
+                "started_at": "2019-10-22T18:11:19.605Z",
+                "ended_at": "2019-10-22T18:11:19.740Z",
+                "is_tap": true
+            }
+        }
+    ],
     "tester": {
         "id": 23,
         "first_name": "Tester",
