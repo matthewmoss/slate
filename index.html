@@ -342,6 +342,23 @@
                   </li>
               </ul>
           </li>
+          <li>
+            <a href="#notes" class="toc-h1 toc-link" data-title="Notes">Notes</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#create-a-timestamped-note" class="toc-h2 toc-link" data-title="Create a Timestamped Note">Create a Timestamped Note</a>
+                  </li>
+                  <li>
+                    <a href="#update-a-note" class="toc-h2 toc-link" data-title="Update a Note">Update a Note</a>
+                  </li>
+                  <li>
+                    <a href="#delete-a-note" class="toc-h2 toc-link" data-title="Delete a Note">Delete a Note</a>
+                  </li>
+                  <li>
+                    <a href="#get-all-notes-for-a-project" class="toc-h2 toc-link" data-title="Get All Notes for a Project">Get All Notes for a Project</a>
+                  </li>
+              </ul>
+          </li>
       </ul>
         <ul class="toc-footer">
             <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
@@ -2054,6 +2071,220 @@ Requests must include ALL the auth headers described above.
 <tr>
 <td>testers[][last_name]</td>
 <td>Last name of a tester</td>
+</tr>
+</tbody></table>
+<h1 id='notes'>Notes</h1>
+<p>Notes let users record user behavior.  They can be attached to a specific timestamp in a session using an <code>Event</code> or pinned to a point on heatmap using a <code>Pin</code> (coming soon).</p>
+<h2 id='create-a-timestamped-note'>Create a Timestamped Note</h2>
+<blockquote>
+<p>To create a note, send this request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://hawkeye-staging.herokuapp.com/api/v1/notes"</span>
+-X POST
+-d <span class="nv">content</span><span class="o">=</span><span class="s2">"Test"</span>
+-d <span class="nv">session_id</span><span class="o">=</span>1
+-d <span class="nv">started_at</span><span class="o">=</span><span class="s2">"2019-06-13'0'10:12:12.000Z"</span>
+-d <span class="nv">ended_at</span><span class="o">=</span><span class="s2">"2019-06-13'0'10:20:12.000Z"</span>
+</code></pre>
+<blockquote>
+<p>The above request returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">26</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-13T10:12:12.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ended_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-13T10:12:12.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"eventable_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Note"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"relative_started_at"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"relative_ended_at"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"duration_percent"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"started_at_percent"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ended_at_percent"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"eventable"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"resolved"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"upvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Matt"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Moss"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint creates a note at a specific timestamp in a session. The response will include the full <code>Event</code> with the <code>Note</code> included under parameter <code>eventable</code>.</p>
+<h3 id='http-request-26'>HTTP Request</h3>
+<p><code>POST https://hawkeye-staging.herokuapp.com/api/v1/notes</code></p>
+<h3 id='url-parameters-22'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>note_id</td>
+<td>The id of the note</td>
+</tr>
+<tr>
+<td>content</td>
+<td>The content of the note.</td>
+</tr>
+<tr>
+<td>session_id</td>
+<td>The ID of the session to attach the note to.</td>
+</tr>
+<tr>
+<td>started_at</td>
+<td>The time in the session where the note began.</td>
+</tr>
+<tr>
+<td>ended_at</td>
+<td>The time in the session where the note ended. For now, should be the same as started_at.</td>
+</tr>
+<tr>
+<td>resolved</td>
+<td>Whether or not the note is resolved.</td>
+</tr>
+</tbody></table>
+<h2 id='update-a-note'>Update a Note</h2>
+<blockquote>
+<p>To update a note, send this request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://hawkeye-staging.herokuapp.com/api/v1/notes/&lt;note_id&gt;"</span>
+-X PUT
+-d <span class="nv">content</span><span class="o">=</span><span class="s2">"Test"</span>
+-d <span class="nv">resolved</span><span class="o">=</span><span class="nb">true</span>
+</code></pre>
+<blockquote>
+<p>The above request returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Just updated this note!"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"resolved"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"upvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"replies"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint updates a note. Event-specific fields like <code>session_id</code>,  <code>started_at</code>,  <code>ended_at</code> cannot be changed. This means you cannot update the timestamp of a note or the session it&#39;s attached to.</p>
+<h3 id='http-request-27'>HTTP Request</h3>
+<p><code>PUT https://hawkeye-staging.herokuapp.com/api/v1/notes/&lt;note_id&gt;</code></p>
+<h3 id='url-parameters-23'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>note_id</td>
+<td>The id of the note</td>
+</tr>
+<tr>
+<td>content</td>
+<td>The content of the note.</td>
+</tr>
+<tr>
+<td>resolved</td>
+<td>Whether or not the note is resolved.</td>
+</tr>
+</tbody></table>
+<h2 id='delete-a-note'>Delete a Note</h2>
+<blockquote>
+<p>To delete a note, send this request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://hawkeye-staging.herokuapp.com/api/v1/notes/&lt;note_id&gt;"</span>
+-X DELETE
+</code></pre>
+<p>This endpoint deletes a note</p>
+<h3 id='http-request-28'>HTTP Request</h3>
+<p><code>DELETE https://hawkeye-staging.herokuapp.com/api/v1/notes/&lt;note_id&gt;</code></p>
+<h3 id='url-parameters-24'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>note_id</td>
+<td>The id of the note</td>
+</tr>
+</tbody></table>
+<h2 id='get-all-notes-for-a-project'>Get All Notes for a Project</h2>
+<blockquote>
+<p>To get all notes for a specific project, send this request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://hawkeye-staging.herokuapp.com/api/v1/projects/&lt;project_id&gt;/notes"</span>
+-X GET
+</code></pre>
+<blockquote>
+<p>The above request returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Testing"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"resolved"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"upvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Matt"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Moss"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"replies"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cool"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"resolved"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"upvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Matt"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Moss"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"replies"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Working"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"resolved"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"upvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Matt"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Moss"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"replies"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint gets all notes for a specific project.</p>
+<h3 id='http-request-29'>HTTP Request</h3>
+<p><code>GET https://hawkeye-staging.herokuapp.com/api/v1/projects/&lt;project_id&gt;/notes</code></p>
+<h3 id='url-parameters-25'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The id of the project</td>
 </tr>
 </tbody></table>
 
