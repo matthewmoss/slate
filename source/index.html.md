@@ -1578,3 +1578,197 @@ testers | Array of testers to be invited.
 testers[][email] | Email address of a tester
 testers[][first_name] | First name of a tester
 testers[][last_name] | Last name of a tester
+
+# Notes
+
+Notes let users record user behavior.  They can be attached to a specific timestamp in a session using an `Event` or pinned to a point on heatmap using a `Pin` (coming soon).
+
+## Create a Timestamped Note
+
+> To create a note, send this request:
+
+```shell
+curl "https://hawkeye-staging.herokuapp.com/api/v1/notes"
+-X POST
+-d content="Test"
+-d session_id=1
+-d started_at="2019-06-13'0'10:12:12.000Z"
+-d ended_at="2019-06-13'0'10:20:12.000Z"
+```
+
+> The above request returns JSON structured like this:
+
+```json
+{
+    "id": 26,
+    "started_at": "2019-06-13T10:12:12.000Z",
+    "ended_at": "2019-06-13T10:12:12.000Z",
+    "eventable_type": "Note",
+    "relative_started_at": 0.0,
+    "relative_ended_at": 0.0,
+    "duration": 0.0,
+    "duration_percent": 0.0,
+    "started_at_percent": 0.0,
+    "ended_at_percent": 0.0,
+    "eventable": {
+        "id": 16,
+        "content": "Test",
+        "resolved": false,
+        "upvotes": 0,
+        "user": {
+            "id": 2,
+            "first_name": "Matt",
+            "last_name": "Moss",
+            "avatar": null
+        }
+    }
+}
+```
+
+This endpoint creates a note at a specific timestamp in a session. The response will include the full `Event` with the `Note` included under parameter `eventable`.
+
+### HTTP Request
+
+`POST https://hawkeye-staging.herokuapp.com/api/v1/notes`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+note_id | The id of the note
+content | The content of the note.
+session_id | The ID of the session to attach the note to.
+started_at | The time in the session where the note began.
+ended_at | The time in the session where the note ended. For now, should be the same as started_at.
+resolved | Whether or not the note is resolved.
+
+## Update a Note
+
+> To update a note, send this request:
+
+```shell
+curl "https://hawkeye-staging.herokuapp.com/api/v1/notes/<note_id>"
+-X PUT
+-d content="Test"
+-d resolved=true
+```
+
+> The above request returns JSON structured like this:
+
+```json
+{
+    "id": 8,
+    "content": "Just updated this note!",
+    "resolved": true,
+    "upvotes": 0,
+    "user": {
+        "id": 2,
+        "first_name": null,
+        "last_name": null,
+        "avatar": null
+    },
+    "replies": []
+}
+```
+
+This endpoint updates a note. Event-specific fields like `session_id`,  `started_at`,  `ended_at` cannot be changed. This means you cannot update the timestamp of a note or the session it's attached to.
+
+### HTTP Request
+
+`PUT https://hawkeye-staging.herokuapp.com/api/v1/notes/<note_id>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+note_id | The id of the note
+content | The content of the note.
+resolved | Whether or not the note is resolved.
+
+## Delete a Note
+
+> To delete a note, send this request:
+
+```shell
+curl "https://hawkeye-staging.herokuapp.com/api/v1/notes/<note_id>"
+-X DELETE
+```
+
+This endpoint deletes a note
+
+### HTTP Request
+
+`DELETE https://hawkeye-staging.herokuapp.com/api/v1/notes/<note_id>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+note_id | The id of the note
+
+## Get All Notes for a Project
+
+> To get all notes for a specific project, send this request:
+
+```shell
+curl "https://hawkeye-staging.herokuapp.com/api/v1/projects/<project_id>/notes"
+-X GET
+```
+
+> The above request returns JSON structured like this:
+
+```json
+[
+    {
+        "id": 1,
+        "content": "Testing",
+        "resolved": false,
+        "upvotes": 0,
+        "user": {
+            "id": 2,
+            "first_name": "Matt",
+            "last_name": "Moss",
+            "avatar": null
+        },
+        "replies": []
+    },
+    {
+        "id": 2,
+        "content": "Cool",
+        "resolved": false,
+        "upvotes": 2,
+        "user": {
+            "id": 2,
+            "first_name": "Matt",
+            "last_name": "Moss",
+            "avatar": null
+        },
+        "replies": []
+    },
+    {
+        "id": 3,
+        "content": "Working",
+        "resolved": true,
+        "upvotes": 3,
+        "user": {
+            "id": 2,
+            "first_name": "Matt",
+            "last_name": "Moss",
+            "avatar": null
+        },
+        "replies": []
+    }
+]
+```
+
+This endpoint gets all notes for a specific project.
+
+### HTTP Request
+
+`GET https://hawkeye-staging.herokuapp.com/api/v1/projects/<project_id>/notes`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+project_id | The id of the project
