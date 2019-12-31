@@ -1772,3 +1772,164 @@ This endpoint gets all notes for a specific project.
 Parameter | Description
 --------- | -----------
 project_id | The id of the project
+
+# Aggregated Heatmaps
+Hawkeye creates aggregated look, tap, and scroll heatmaps for each page in a product. Heatmaps are segmented by device type. Each page in a product is represented by an `AggregatedPageSnapshot`, which has an `AggregatedPage` for each device type. For instance, to view the phone heatmap for the profile page in a project, the following could be done: `profileSnapshot.phone_page`.  Each `AggregatedPage` contains a `PageElementMap`, which contains all info needed to display a heatmap (screen size, scroll size, UI element locations, look data, tap data, etc.)
+
+The following flow will likely be used to request an aggregated heatmap:
+
+1.  Fetch all aggregated heatmap snapshots, which will return the minimum info needed to display a list of heatmaps.
+2.  After the user picks a heatmap, fetch the full `AggregatedHeatmapSnapshot`, which will include the IDs for each device-specific `AggregatedPage`.
+3.  Fetch a full `AggregatedPage` for a specific device using the ID found in the previous request.
+
+## Get All Aggregated Heatmap Snapshots
+
+> To get all aggregated heatmap snapshots for a project, send this request:
+
+```shell
+curl "https://hawkeye-staging.herokuapp.com/api/v1/projects/<project_id>/aggregated_page_snapshots"
+-X GET
+```
+
+> The above request returns JSON structured like this:
+
+```json
+[
+    {
+        "id": 1,
+        "title": "Snapshot 1",
+        "query": "https://google.com",
+        "created_at": "2019-12-31T02:52:03.298Z",
+        "total_page_merges_count": 0,
+        "state": "queued",
+        "thumbnail": null
+    },
+    {
+        "id": 2,
+        "title": "Snapshot 2",
+        "query": "https://instagram.com",
+        "created_at": "2019-12-31T02:57:15.593Z",
+        "total_page_merges_count": 0,
+        "state": "queued",
+        "thumbnail": null
+    },
+    {
+        "id": 3,
+        "title": "Test Name",
+        "query": "https://google.com",
+        "created_at": "2019-12-31T02:57:56.710Z",
+        "total_page_merges_count": 0,
+        "state": "queued",
+        "thumbnail": null
+    }
+]
+```
+This endpoint fetches all aggregated heatmaps for a project.
+
+### HTTP Request
+
+`GET https://hawkeye-staging.herokuapp.com/api/v1/projects/<project_id>/aggregated_page_snapshots`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+project_id | The identifier of the project
+
+## Get an Individual Aggregated Page Snapshot
+
+> To get an individual aggregated page snapshot, send this request:
+
+```shell
+curl "https://hawkeye-staging.herokuapp.com/api/v1/aggregated_page_snapshots/<snapshot_id>"
+-X GET
+```
+
+> The above request returns JSON structured like this:
+
+```json
+{
+    "id": 1,
+    "title": "Test Snapshot",
+    "query": "https://google.com",
+    "created_at": "2019-12-31T02:57:56.710Z",
+    "total_page_merges_count": 0,
+    "state": "queued",
+    "thumbnail": null,
+    "phone": {
+        "id": 1,
+        "uid": "https://google.com",
+        "page_merges_count": 0,
+        "device_type": "phone",
+        "screen_width": 200.0,
+        "screen_height": 500.0,
+        "thumbnail": null
+    },
+    "tablet": null,
+    "desktop": null
+}
+```
+
+This endpoint retrieves an individual aggregated page snapshot, including barebones information on each device-specific `AggregatedPage`. A second request can be sent to request the full `AggregatedPage` for a specific device type.
+
+### HTTP Request
+
+`GET https://hawkeye-staging.herokuapp.com/api/v1/aggregated_page_snapshots/<snapshot_id>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+snapshot_id | The id of the aggregated page snapshot.
+
+## Get an Individual Aggregated Page
+
+> To get an individual aggregated page, send this request:
+
+```shell
+curl "https://hawkeye-staging.herokuapp.com/api/v1/aggregated_pages/<page_id>"
+-d type=looks
+-X GET
+```
+
+> The above request returns JSON structured like this:
+
+```json
+{
+    "id": 1,
+    "uid": "https://google.com",
+    "page_merges_count": 0,
+    "device_type": "phone",
+    "screen_width": 200.0,
+    "screen_height": 500.0,
+    "thumbnail": null,
+    "page_element_map": {
+        "uid": "https://google.com",
+        "screen_capture": null,
+        "screen_width": 200.0,
+        "screen_height": 300.0,
+        "scroll_width": 200.0,
+        "scroll_height": 400.0,
+        "eye_positions_count": null,
+        "taps_count": null,
+        "average_looks": [],
+        "root": null,
+        "success_percentage": 1.0
+    }
+}
+```
+
+This endpoint retrieves an individual device-specific aggregated page. This includes the full page element map that can be used to display a heatmap. An optional `type` parameter can be used to request look, tap, or scroll heatmap data.
+
+This request should be used to request a full heatmap for a specific device type after an `AggregatedPageSnapshot` has been retrieved.
+
+### HTTP Request
+
+`GET https://hawkeye-staging.herokuapp.com/api/v1/aggregated_pages/<page_id>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+page_id | The id of the aggregated page.
+type | The type of heatmap to be returned. Includes look, tap, and scroll.
