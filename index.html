@@ -359,6 +359,20 @@
                   </li>
               </ul>
           </li>
+          <li>
+            <a href="#aggregated-heatmaps" class="toc-h1 toc-link" data-title="Aggregated Heatmaps">Aggregated Heatmaps</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-aggregated-heatmap-snapshots" class="toc-h2 toc-link" data-title="Get All Aggregated Heatmap Snapshots">Get All Aggregated Heatmap Snapshots</a>
+                  </li>
+                  <li>
+                    <a href="#get-an-individual-aggregated-page-snapshot" class="toc-h2 toc-link" data-title="Get an Individual Aggregated Page Snapshot">Get an Individual Aggregated Page Snapshot</a>
+                  </li>
+                  <li>
+                    <a href="#get-an-individual-aggregated-page" class="toc-h2 toc-link" data-title="Get an Individual Aggregated Page">Get an Individual Aggregated Page</a>
+                  </li>
+              </ul>
+          </li>
       </ul>
         <ul class="toc-footer">
             <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
@@ -2285,6 +2299,172 @@ Requests must include ALL the auth headers described above.
 <tr>
 <td>project_id</td>
 <td>The id of the project</td>
+</tr>
+</tbody></table>
+<h1 id='aggregated-heatmaps'>Aggregated Heatmaps</h1>
+<p>Hawkeye creates aggregated look, tap, and scroll heatmaps for each page in a product. Heatmaps are segmented by device type. Each page in a product is represented by an <code>AggregatedPageSnapshot</code>, which has an <code>AggregatedPage</code> for each device type. For instance, to view the phone heatmap for the profile page in a project, the following could be done: <code>profileSnapshot.phone_page</code>.  Each <code>AggregatedPage</code> contains a <code>PageElementMap</code>, which contains all info needed to display a heatmap (screen size, scroll size, UI element locations, look data, tap data, etc.)</p>
+
+<p>The following flow will likely be used to request an aggregated heatmap:</p>
+
+<ol>
+<li> Fetch all aggregated heatmap snapshots, which will return the minimum info needed to display a list of heatmaps.</li>
+<li> After the user picks a heatmap, fetch the full <code>AggregatedHeatmapSnapshot</code>, which will include the IDs for each device-specific <code>AggregatedPage</code>.</li>
+<li> Fetch a full <code>AggregatedPage</code> for a specific device using the ID found in the previous request.</li>
+</ol>
+<h2 id='get-all-aggregated-heatmap-snapshots'>Get All Aggregated Heatmap Snapshots</h2>
+<blockquote>
+<p>To get all aggregated heatmap snapshots for a project, send this request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://hawkeye-staging.herokuapp.com/api/v1/projects/&lt;project_id&gt;/aggregated_page_snapshots"</span>
+-X GET
+</code></pre>
+<blockquote>
+<p>The above request returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Snapshot 1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"query"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://google.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-31T02:52:03.298Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total_page_merges_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"queued"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Snapshot 2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"query"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://instagram.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-31T02:57:15.593Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total_page_merges_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"queued"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Name"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"query"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://google.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-31T02:57:56.710Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total_page_merges_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"queued"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint fetches all aggregated heatmaps for a project.</p>
+<h3 id='http-request-30'>HTTP Request</h3>
+<p><code>GET https://hawkeye-staging.herokuapp.com/api/v1/projects/&lt;project_id&gt;/aggregated_page_snapshots</code></p>
+<h3 id='url-parameters-26'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The identifier of the project</td>
+</tr>
+</tbody></table>
+<h2 id='get-an-individual-aggregated-page-snapshot'>Get an Individual Aggregated Page Snapshot</h2>
+<blockquote>
+<p>To get an individual aggregated page snapshot, send this request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://hawkeye-staging.herokuapp.com/api/v1/aggregated_page_snapshots/&lt;snapshot_id&gt;"</span>
+-X GET
+</code></pre>
+<blockquote>
+<p>The above request returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Snapshot"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"query"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://google.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-31T02:57:56.710Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_page_merges_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"queued"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://google.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"page_merges_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"device_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"phone"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"screen_width"</span><span class="p">:</span><span class="w"> </span><span class="mf">200.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"screen_height"</span><span class="p">:</span><span class="w"> </span><span class="mf">500.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"tablet"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"desktop"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves an individual aggregated page snapshot, including barebones information on each device-specific <code>AggregatedPage</code>. A second request can be sent to request the full <code>AggregatedPage</code> for a specific device type.</p>
+<h3 id='http-request-31'>HTTP Request</h3>
+<p><code>GET https://hawkeye-staging.herokuapp.com/api/v1/aggregated_page_snapshots/&lt;snapshot_id&gt;</code></p>
+<h3 id='url-parameters-27'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>snapshot_id</td>
+<td>The id of the aggregated page snapshot.</td>
+</tr>
+</tbody></table>
+<h2 id='get-an-individual-aggregated-page'>Get an Individual Aggregated Page</h2>
+<blockquote>
+<p>To get an individual aggregated page, send this request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://hawkeye-staging.herokuapp.com/api/v1/aggregated_pages/&lt;page_id&gt;"</span>
+-d <span class="nb">type</span><span class="o">=</span>looks
+-X GET
+</code></pre>
+<blockquote>
+<p>The above request returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://google.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"page_merges_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"device_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"phone"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"screen_width"</span><span class="p">:</span><span class="w"> </span><span class="mf">200.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"screen_height"</span><span class="p">:</span><span class="w"> </span><span class="mf">500.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"page_element_map"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://google.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"screen_capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"screen_width"</span><span class="p">:</span><span class="w"> </span><span class="mf">200.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"screen_height"</span><span class="p">:</span><span class="w"> </span><span class="mf">300.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"scroll_width"</span><span class="p">:</span><span class="w"> </span><span class="mf">200.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"scroll_height"</span><span class="p">:</span><span class="w"> </span><span class="mf">400.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"eye_positions_count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"taps_count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"average_looks"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="s2">"root"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"success_percentage"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves an individual device-specific aggregated page. This includes the full page element map that can be used to display a heatmap. An optional <code>type</code> parameter can be used to request look, tap, or scroll heatmap data.</p>
+
+<p>This request should be used to request a full heatmap for a specific device type after an <code>AggregatedPageSnapshot</code> has been retrieved.</p>
+<h3 id='http-request-32'>HTTP Request</h3>
+<p><code>GET https://hawkeye-staging.herokuapp.com/api/v1/aggregated_pages/&lt;page_id&gt;</code></p>
+<h3 id='url-parameters-28'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>page_id</td>
+<td>The id of the aggregated page.</td>
+</tr>
+<tr>
+<td>type</td>
+<td>The type of heatmap to be returned. Includes look, tap, and scroll.</td>
 </tr>
 </tbody></table>
 
