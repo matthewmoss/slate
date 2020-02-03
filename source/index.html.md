@@ -1849,20 +1849,26 @@ curl "https://hawkeye-staging.herokuapp.com/api/v1/aggregated_page_snapshots/<sn
 
 ```json
 {
-    "id": 1,
-    "title": "Test Snapshot",
-    "query": "https://google.com",
-    "created_at": "2019-12-31T02:57:56.710Z",
-    "total_page_merges_count": 0,
-    "state": "queued",
+    "id": 5,
+    "title": "Title",
+    "query": "query",
+    "created_at": "2020-01-05T01:39:52.584Z",
+    "total_page_merges_count": 44,
+    "state": "completed",
     "thumbnail": null,
+    "public": false,
+    "token": "51q7NhZj4l46qZ3jNDRTTw",
+    "avg_visit_duration": 19636.3636363636,
+    "avg_page_order": 0,
+    "total_looks_count": 0,
+    "total_taps_count": 0,
     "phone": {
-        "id": 1,
-        "uid": "https://google.com",
-        "page_merges_count": 0,
+        "id": 19,
+        "uid": "cool",
+        "page_merges_count": 31,
         "device_type": "phone",
-        "screen_width": 200.0,
-        "screen_height": 500.0,
+        "screen_width": 375.0,
+        "screen_height": 812.0,
         "thumbnail": null
     },
     "tablet": null,
@@ -1881,6 +1887,62 @@ This endpoint retrieves an individual aggregated page snapshot, including barebo
 Parameter | Description
 --------- | -----------
 snapshot_id | The id of the aggregated page snapshot.
+
+## Update an Individual Aggregated Page Snapshot
+
+> To update an individual aggregated page snapshot, send this request:
+
+```shell
+curl "https://hawkeye-staging.herokuapp.com/api/v1/aggregated_page_snapshots/<snapshot_id>"
+-X PUT
+-d title="New Title"
+-d public=false
+```
+
+> The above request returns JSON structured like this:
+
+```json
+{
+    "id": 5,
+    "title": "New Title",
+    "query": "query",
+    "created_at": "2020-01-05T01:39:52.584Z",
+    "total_page_merges_count": 44,
+    "state": "completed",
+    "thumbnail": null,
+    "public": false,
+    "token": "51q7NhZj4l46qZ3jNDRTTw",
+    "avg_visit_duration": 19636.3636363636,
+    "avg_page_order": 0,
+    "total_looks_count": 0,
+    "total_taps_count": 0,
+    "phone": {
+        "id": 19,
+        "uid": "cool",
+        "page_merges_count": 31,
+        "device_type": "phone",
+        "screen_width": 375.0,
+        "screen_height": 812.0,
+        "thumbnail": null
+    },
+    "tablet": null,
+    "desktop": null
+}
+```
+
+This endpoint updates an aggregated page snapshot.
+
+### HTTP Request
+
+`PUT https://hawkeye-staging.herokuapp.com/api/v1/aggregated_page_snapshots/<snapshot_id>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+snapshot_id | The id of the aggregated page snapshot.
+title | The updated title of the aggregated page snapshot.
+public | The updated state of the aggregated page snapshot.
 
 ## Get an Individual Aggregated Page
 
