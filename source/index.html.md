@@ -1995,3 +1995,134 @@ Parameter | Description
 --------- | -----------
 page_id | The id of the aggregated page.
 type | The type of heatmap to be returned. Includes look, tap, and scroll.
+
+# Project Overview
+The project overview endpoint returns a summary of activity for a project over the last week. This includes sessions that were created, heatmaps that were updated, testers who joined, and team activity, like notes. This makes it easy to provide an overview of a project without making numerous requests.
+
+## Get All Aggregated Heatmap Snapshots
+
+> To fetch the overview for a project, send this request:
+
+```shell
+curl "https://hawkeye-staging.herokuapp.com/api/v1/projects/<project_id>/overviews"
+-X GET
+```
+
+> The above request returns JSON structured like this:
+
+```json
+{
+    "sessions": [
+        {
+            "id": 6,
+            "token": "bLHYPFAjjcv6-VWSbEYNDQ",
+            "title": "Example Session",
+            "content_type": "app",
+            "started_at": "2019-06-13T10:12:12.000Z",
+            "ended_at": "2019-06-13T10:20:12.000Z",
+            "favorite": false,
+            "created_at": "2020-06-16T22:53:45.679Z",
+            "updated_at": "2020-06-16T22:53:45.679Z"
+        }
+    ],
+    "heatmaps": [],
+    "testers": [
+        {
+            "id": 7,
+            "first_name": "Tester",
+            "last_name": "Smith",
+            "email": "tester@usehawkeye.com",
+            "phone": null,
+            "sessions_count": 1,
+            "first_test_at": "2020-06-16T22:53:45.640Z",
+            "last_test_at": "2020-06-16T22:53:45.640Z",
+            "creator": {
+                "id": 17,
+                "first_name": null,
+                "last_name": null
+            },
+            "avatar": null
+        }
+    ],
+    "notifications": [
+        {
+            "id": 2,
+            "created_at": "2020-06-17T05:59:27.599Z",
+            "user": {
+                "id": 17,
+                "first_name": null,
+                "last_name": null,
+                "avatar": null
+            },
+            "notifiable_type": "Event",
+            "count": null,
+            "notification_type": null,
+            "notifiable": {
+                "id": 708,
+                "started_at": null,
+                "ended_at": null,
+                "eventable_type": "Note",
+                "eventable": {
+                    "id": 20,
+                    "content": null,
+                    "resolved": false,
+                    "upvotes": 0,
+                    "user": {
+                        "id": 17,
+                        "first_name": null,
+                        "last_name": null,
+                        "avatar": null
+                    },
+                    "replies": []
+                }
+            }
+        },
+        {
+            "id": 3,
+            "created_at": "2020-06-17T06:03:49.196Z",
+            "user": {
+                "id": 17,
+                "first_name": null,
+                "last_name": null,
+                "avatar": null
+            },
+            "notifiable_type": "Event",
+            "count": null,
+            "notification_type": "note",
+            "notifiable": {
+                "id": 709,
+                "started_at": null,
+                "ended_at": null,
+                "eventable_type": "Note",
+                "eventable": {
+                    "id": 21,
+                    "content": null,
+                    "resolved": false,
+                    "upvotes": 0,
+                    "user": {
+                        "id": 17,
+                        "first_name": null,
+                        "last_name": null,
+                        "avatar": null
+                    },
+                    "replies": []
+                }
+            }
+        }
+    ]
+}
+```
+
+This endpoint fetches the overview for a specified project. Sessions, heatmaps, and testers follow the same JSON format as their dedicated endpoints.
+
+TeamNotifications are used to track the actions team members perform on a project. For instance, a TeamNotification is created whenever a user makes a note on a session or invites subjects to participate in a test. A TeamNotification's `notification_type` can either be `note` or `session_invites`, with more types to be added. TeamNotifications can also have a polymorphic `notifiable` object attached. For notes, this is the `Event` object than attaches a `Note` to a `Session`. The `notifiable_type` describes what type of object is attached to the TeamNotification. Lastly, TeamNotifications have a `count` property that is used when the user performs multiple actions at once, like inviting several testers to the project.
+
+### HTTP Request
+
+`GET https://hawkeye-staging.herokuapp.com/api/v1/projects/<project_id>/overviews`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+project_id | The id of the project.
