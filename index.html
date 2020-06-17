@@ -376,6 +376,14 @@
                   </li>
               </ul>
           </li>
+          <li>
+            <a href="#project-overview" class="toc-h1 toc-link" data-title="Project Overview">Project Overview</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-aggregated-heatmap-snapshots-2" class="toc-h2 toc-link" data-title="Get All Aggregated Heatmap Snapshots">Get All Aggregated Heatmap Snapshots</a>
+                  </li>
+              </ul>
+          </li>
       </ul>
         <ul class="toc-footer">
             <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
@@ -2536,6 +2544,136 @@ Requests must include ALL the auth headers described above.
 <tr>
 <td>type</td>
 <td>The type of heatmap to be returned. Includes look, tap, and scroll.</td>
+</tr>
+</tbody></table>
+<h1 id='project-overview'>Project Overview</h1>
+<p>The project overview endpoint returns a summary of activity for a project over the last week. This includes sessions that were created, heatmaps that were updated, testers who joined, and team activity, like notes. This makes it easy to provide an overview of a project without making numerous requests.</p>
+<h2 id='get-all-aggregated-heatmap-snapshots-2'>Get All Aggregated Heatmap Snapshots</h2>
+<blockquote>
+<p>To fetch the overview for a project, send this request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://hawkeye-staging.herokuapp.com/api/v1/projects/&lt;project_id&gt;/overviews"</span>
+-X GET
+</code></pre>
+<blockquote>
+<p>The above request returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"sessions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bLHYPFAjjcv6-VWSbEYNDQ"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Session"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-13T10:12:12.000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ended_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-13T10:20:12.000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"favorite"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-06-16T22:53:45.679Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-06-16T22:53:45.679Z"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"heatmaps"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"testers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tester"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tester@usehawkeye.com"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sessions_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"first_test_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-06-16T22:53:45.640Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"last_test_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-06-16T22:53:45.640Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"creator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"notifications"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-06-17T05:59:27.599Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"notifiable_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Event"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"notification_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"notifiable"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">708</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"ended_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"eventable_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Note"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"eventable"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"resolved"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"upvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="s2">"replies"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-06-17T06:03:49.196Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"notifiable_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Event"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"notification_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"note"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"notifiable"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">709</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"ended_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"eventable_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Note"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"eventable"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">21</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"resolved"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"upvotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="s2">"replies"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint fetches the overview for a specified project. Sessions, heatmaps, and testers follow the same JSON format as their dedicated endpoints.</p>
+
+<p>TeamNotifications are used to track the actions team members perform on a project. For instance, a TeamNotification is created whenever a user makes a note on a session or invites subjects to participate in a test. A TeamNotification&#39;s <code>notification_type</code> can either be <code>note</code> or <code>session_invites</code>, with more types to be added. TeamNotifications can also have a polymorphic <code>notifiable</code> object attached. For notes, this is the <code>Event</code> object than attaches a <code>Note</code> to a <code>Session</code>. The <code>notifiable_type</code> describes what type of object is attached to the TeamNotification. Lastly, TeamNotifications have a <code>count</code> property that is used when the user performs multiple actions at once, like inviting several testers to the project.</p>
+<h3 id='http-request-34'>HTTP Request</h3>
+<p><code>GET https://hawkeye-staging.herokuapp.com/api/v1/projects/&lt;project_id&gt;/overviews</code></p>
+<h3 id='url-parameters-30'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_id</td>
+<td>The id of the project.</td>
 </tr>
 </tbody></table>
 
