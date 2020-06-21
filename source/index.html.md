@@ -1999,7 +1999,7 @@ type | The type of heatmap to be returned. Includes look, tap, and scroll.
 # Project Overview
 The project overview endpoint returns a summary of activity for a project over the last week. This includes sessions that were created, heatmaps that were updated, testers who joined, and team activity, like notes. This makes it easy to provide an overview of a project without making numerous requests.
 
-## Get All Aggregated Heatmap Snapshots
+## Get Overview for a Project
 
 > To fetch the overview for a project, send this request:
 
