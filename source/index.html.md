@@ -2109,7 +2109,19 @@ curl "https://hawkeye-staging.herokuapp.com/api/v1/projects/<project_id>/overvie
                 }
             }
         }
-    ]
+    ],
+    "daily_totals": {
+        "2020-06-16 00:00:00 UTC": 1,
+        "2020-04-02 00:00:00 UTC": 3,
+        "2020-02-03 00:00:00 UTC": 1,
+        "2019-10-13 00:00:00 UTC": 1
+    },
+    "weekly_totals": {
+        "2020-06-15 00:00:00 UTC": 1,
+        "2020-03-30 00:00:00 UTC": 3,
+        "2020-02-03 00:00:00 UTC": 1,
+        "2019-10-07 00:00:00 UTC": 1
+    }
 }
 ```
 
