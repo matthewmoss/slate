@@ -2138,3 +2138,63 @@ TeamNotifications are used to track the actions team members perform on a projec
 Parameter | Description
 --------- | -----------
 project_id | The id of the project.
+
+# Test Orders
+Test orders allow Hawkeye customers to recruit and pay testers to participate in their studies. Behind the scenes, we use MTurk to facilitate the tests. 
+
+## Order Tests
+
+> To order tests, send this request:
+
+```shell
+curl "https://hawkeye-staging.herokuapp.com/api/v1/projects/<project_id>/test_orders?quantity=1"
+-X GET
+```
+
+> The above request returns JSON structured like this:
+
+```json
+{
+    "stripe_session_id": "cs_test_fNORHkfLEJJWWdW1Ms8aR1fa9d3EqDHbDlNICKyw5zpm2btIMGBMLaRR",
+    "data": {
+        "id": 25,
+        "project_id": 586,
+        "quantity": 4,
+        "created_at": "2020-08-30T23:27:26.928Z",
+        "updated_at": "2020-08-30T23:27:26.928Z",
+        "uid": null,
+        "group_uid": null,
+        "type_uid": null,
+        "fulfillment_source": "mturk",
+        "completed_sessions": 0,
+        "completion_status": "pending",
+        "payment_status": "needs_review"
+    }
+}
+```
+
+This endpoint creates a TestOrder for a specified quantity of tests with certain qualifications (age, gender, etc.). A fulfullment request is then created through the MTurk api to facilitate the tests.
+
+Current qualifications include age and gender. If no qualifications are provided, all The following are valid qualifications:
+
+```
+{
+min_age: 10,
+max_age: 15,
+gender: "male"
+}
+```
+
+### HTTP Request
+
+`GET https://hawkeye-staging.herokuapp.com/api/v1/projects/<project_id>/test_orders`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+project_id | The id of the project.
+quantity | Number of tests
+min_age | Minimum age of testers. Rounded to nearest 5 yrs.
+max_age | Maximum age of testers. Rounded to nearest 5 yrs.
+gender | Gender of testers. Options include: "all", "male", "female"
